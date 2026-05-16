@@ -1292,3 +1292,25 @@ nav {
     font-size: 4.3rem;
   }
 }
+
+
+.travel-month-picker{
+  border:none;
+  border-radius:999px;
+  padding:10px 16px;
+  background:rgba(255,255,255,.08);
+  color:white;
+  backdrop-filter:blur(10px);
+}
+
+.season-pill{
+  display:inline-flex;
+  padding:6px 12px;
+  border-radius:999px;
+  background:#efe6d6;
+  color:#111;
+  font-size:.72rem;
+  font-weight:700;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
