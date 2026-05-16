@@ -145,6 +145,6 @@ const server = http.createServer(async (req, res) => {
   serveStatic(res, pathname);
 });
 
-server.listen(port, "127.0.0.1", () => {
-  console.log(`VibeTrip AI is live at http://127.0.0.1:${port}`);
+server.listen(port, "0.0.0.0", () => {
+  console.log(`VibeTrip AI is live on port ${port}`);
 });
