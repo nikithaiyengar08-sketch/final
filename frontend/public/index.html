@@ -1,116 +1,305 @@
-<!doctype html>
+<!-- ======================================================
+     VIBETRIP — INDEX.HTML REBUILD
+     PHASE 2C
+     HOMEPAGE STRUCTURE
+====================================================== -->
+
+<!DOCTYPE html>
+
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>VibeTrip AI</title>
-    <meta name="description" content="Trips curated around your mood." />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/styles.css" />
-  </head>
-  <body>
-    <div class="noise"></div>
-    <header class="topbar">
-      <a class="brand" href="#/" aria-label="VibeTrip home">
-        <span>VibeTrip</span>
-        <small>AI</small>
-      </a>
-      <nav aria-label="Primary">
-        <a href="#destinations">Destinations</a>
-        <a href="#vibes">Vibes</a>
-        <a href="#planner">Planner</a>
-      <input type="month" id="travelMonth" class="travel-month-picker" /></nav>
-      <button class="ghost-button" id="openSaves">Saved <span id="saveCount">0</span></button>
-    </header>
 
-    <main>
-      <section class="hero" id="hero">
-        <div class="hero-media" aria-hidden="true"></div>
-        <div class="hero-copy reveal">
-          <p class="eyebrow">vibe-first trip discovery</p>
-          <h1><span>Trips</span> curated around your mood.</h1>
-          <p>Pick the feeling. Get destinations, mood routes, rough costs, must-go spots, hidden gems, and premium itinerary previews.</p>
-          <div class="hero-actions">
-            <a class="primary-button magnetic" href="#destinations">Explore trips</a>
-            <a class="secondary-button" href="#planner">Find my match</a>
-          </div>
-        </div>
-        <aside class="hero-card reveal">
-          <span>Today’s edit</span>
-          <strong>low-chaos, high-glow</strong>
-          <p>Coorg estate mornings, Bali cafes, or Sri Lanka train-window feelings.</p>
-        </aside>
-      </section>
+<head>
 
-      <section class="section product-strip reveal">
-        <article><span>01</span><strong>Mood first</strong><p>No boring search box. Start with how the trip should feel.</p></article>
-        <article><span>02</span><strong>Curated pages</strong><p>Every destination has its own routes, costs, prep, gems, and avoids.</p></article>
-        <article><span>03</span><strong>Premium ready</strong><p>Blurred hidden gems and locked itinerary depth create upgrade moments.</p></article>
-      </section>
+  <meta charset="UTF-8" />
 
-      <section class="section" id="destinations">
-        <div class="section-heading reveal">
-          <p class="eyebrow">destination board</p>
-          <h2>Choose a place. Then choose the version of it.</h2>
-        </div>
-        <div class="destination-grid" id="destinationGrid"></div>
-      </section>
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
 
-      <section class="section vibe-section" id="vibes">
-        <div class="section-heading reveal">
-          <p class="eyebrow">mood filter</p>
-          <h2>How do you want the trip to feel?</h2>
-        </div>
-        <div class="vibe-buttons" id="vibeButtons"></div>
-        <div class="match-panel reveal" id="matchPanel"></div>
-      </section>
+  <title>
+    Vibetrip
+  </title>
 
-      <section class="section planner" id="planner">
-        <div class="planner-copy reveal">
-          <p class="eyebrow">free planner</p>
-          <h2>Tell the backend your mood.</h2>
-          <p>The recommendation engine scores budget, vibe, duration, and food style. No paid AI required for the MVP.</p>
-        </div>
-        <form class="planner-form reveal" id="plannerForm">
-          <label>Budget
-            <select name="budget">
-              <option value="under-30k">Under INR 30k</option>
-              <option value="30k-70k">INR 30k - 70k</option>
-              <option value="70k-1.5l">INR 70k - 1.5L</option>
-              <option value="1.5l-plus">INR 1.5L+</option>
-            </select>
-          </label>
-          <label>Vibe
-            <select name="vibe" id="plannerVibe"></select>
-          </label>
-          <label>Duration
-            <input name="duration" type="range" min="2" max="12" value="5" />
-            <span id="durationLabel">5 days</span>
-          </label>
-          <label>Food
-            <select name="food">
-              <option value="anything">Anything pretty and good</option>
-              <option value="vegetarian">Vegetarian friendly</option>
-              <option value="street-food">Street-food coded</option>
-              <option value="cafes">Cafe-first</option>
-            </select>
-          </label>
-          <button class="primary-button" type="submit">Reveal my trip</button>
-        </form>
-        <div class="ai-result reveal" id="aiResult"></div>
-      </section>
+  <link
+    rel="stylesheet"
+    href="./styles.css"
+  />
 
-      <section class="destination-page" id="destinationPage" hidden></section>
-    </main>
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  />
 
-    <dialog class="saves-drawer" id="savesDrawer">
-      <button class="close-button" id="closeSaves" aria-label="Close saved trips">×</button>
-      <h2>Saved dream board</h2>
-      <div id="savedList"></div>
-    </dialog>
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  />
 
-    <script type="module" src="/app.js"></script>
-  </body>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+</head>
+
+<body>
+
+  <!-- ======================================================
+       NAVBAR
+  ====================================================== -->
+
+  <nav class="navbar">
+
+    <div class="logo">
+      Vibetrip
+    </div>
+
+    <div class="nav-actions">
+
+      <input
+        type="text"
+        placeholder="search destinations"
+        class="search-input"
+        id="searchInput"
+      />
+
+      <input
+        type="month"
+        class="month-picker"
+        id="travelMonth"
+      />
+
+    </div>
+
+  </nav>
+
+  <!-- ======================================================
+       HERO
+  ====================================================== -->
+
+  <section class="hero">
+
+    <div class="hero-kicker">
+      curated routes • smarter pacing • prettier stays
+    </div>
+
+    <h1>
+      Trips people actually want to take.
+    </h1>
+
+    <p class="hero-sub">
+
+      Not generic itineraries.
+
+      Routes with better timing,
+      prettier stays,
+      slower pacing,
+      smarter combinations,
+      and the stuff people regret missing.
+
+    </p>
+
+  </section>
+
+  <!-- ======================================================
+       QUICK ESCAPES
+  ====================================================== -->
+
+  <section class="section">
+
+    <div class="section-top">
+
+      <div>
+
+        <h2 class="section-title">
+          Quick Escapes
+        </h2>
+
+      </div>
+
+      <p class="section-sub">
+
+        The kind of trips people impulsively book
+        after one bad work week.
+
+      </p>
+
+    </div>
+
+    <div
+      class="trip-grid"
+      id="quickEscapesGrid"
+    ></div>
+
+  </section>
+
+  <!-- ======================================================
+       INDIA
+  ====================================================== -->
+
+  <section class="section">
+
+    <div class="section-top">
+
+      <div>
+
+        <h2 class="section-title">
+          India
+        </h2>
+
+      </div>
+
+      <p class="section-sub">
+
+        Mountain roads,
+        rain drives,
+        temple towns,
+        coastal escapes,
+        tea estates,
+        hidden cafes,
+        and routes paced properly.
+
+      </p>
+
+    </div>
+
+    <div
+      class="trip-grid"
+      id="indiaGrid"
+    ></div>
+
+  </section>
+
+  <!-- ======================================================
+       INTERNATIONAL
+  ====================================================== -->
+
+  <section class="section">
+
+    <div class="section-top">
+
+      <div>
+
+        <h2 class="section-title">
+          International
+        </h2>
+
+      </div>
+
+      <p class="section-sub">
+
+        Better combinations,
+        smarter pacing,
+        prettier stays,
+        and routes that feel internet-curated
+        instead of agency-made.
+
+      </p>
+
+    </div>
+
+    <div
+      class="trip-grid"
+      id="internationalGrid"
+    ></div>
+
+  </section>
+
+  <!-- ======================================================
+       DREAM ROUTES
+  ====================================================== -->
+
+  <section class="section">
+
+    <div class="section-top">
+
+      <div>
+
+        <h2 class="section-title">
+          Dream Routes
+        </h2>
+
+      </div>
+
+      <p class="section-sub">
+
+        The trips people keep saving
+        for “one day.”
+
+      </p>
+
+    </div>
+
+    <div
+      class="trip-grid"
+      id="dreamRoutesGrid"
+    ></div>
+
+  </section>
+
+  <!-- ======================================================
+       SEASONAL PICKS
+  ====================================================== -->
+
+  <section class="section">
+
+    <div class="section-top">
+
+      <div>
+
+        <h2 class="section-title">
+          Best Right Now
+        </h2>
+
+      </div>
+
+      <p class="section-sub">
+
+        Routes automatically prioritized
+        based on the month you selected.
+
+      </p>
+
+    </div>
+
+    <div
+      class="trip-grid"
+      id="seasonalGrid"
+    ></div>
+
+  </section>
+
+  <!-- ======================================================
+       FOOTER
+  ====================================================== -->
+
+  <footer class="footer">
+
+    <div class="footer-logo">
+      Vibetrip
+    </div>
+
+    <p>
+
+      Trips with better pacing,
+      prettier stays,
+      and smarter timing.
+
+    </p>
+
+  </footer>
+
+  <!-- ======================================================
+       SCRIPT
+  ====================================================== -->
+
+  <script
+    type="module"
+    src="./app.js"
+  ></script>
+
+</body>
+
 </html>
