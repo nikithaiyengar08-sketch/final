@@ -675,3 +675,48 @@ export const packages = destinations.flatMap((destination) =>
 export const hiddenGems = destinations.flatMap((destination) =>
   destination.hiddenGems.map((gem) => ({ destinationId: destination.id, gem }))
 );
+
+
+// ===== EXPANDED DESTINATION METADATA =====
+
+export const smartTravelMeta = {
+  bali: {
+    bestMonths: ["April","May","June","July","August","September"],
+    budgets: {
+      budget: "₹60k–90k",
+      mid: "₹1.5L–2.5L",
+      luxury: "₹4L+"
+    },
+    trending: true
+  },
+
+  himachal: {
+    bestMonths: ["March","April","May","June","September","October"],
+    budgets: {
+      budget: "₹15k–30k",
+      mid: "₹45k–80k",
+      luxury: "₹1.5L+"
+    },
+    trending: true
+  },
+
+  goa: {
+    bestMonths: ["November","December","January","February"],
+    budgets: {
+      budget: "₹12k–25k",
+      mid: "₹40k–75k",
+      luxury: "₹1.2L+"
+    },
+    trending: true
+  },
+
+  japan: {
+    bestMonths: ["March","April","October","November"],
+    budgets: {
+      budget: "₹1L–1.8L",
+      mid: "₹2.5L–4L",
+      luxury: "₹6L+"
+    },
+    trending: true
+  }
+};
