@@ -2668,6 +2668,12 @@ export const trips = [
 
 ];
 
+export const destinations = trips;
 
+export const vibes = [];
+
+export const packages = [];
+
+export const hiddenGems = [];
 
 
