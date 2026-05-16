@@ -1,722 +1,2673 @@
-export const vibes = [
-  { id: "quiet-luxury", label: "Quiet Luxury", mood: "slow, polished, boutique, calm" },
-  { id: "healing", label: "Healing Escape", mood: "journaling, nature, sleep, reset" },
-  { id: "cafes", label: "Cafe Hopping", mood: "walkable neighborhoods and pretty coffee" },
-  { id: "girls-trip", label: "Girls Trip", mood: "safe, photogenic, social, cute fits" },
-  { id: "adventure", label: "Adventure", mood: "views, movement, sunrise plans" },
-  { id: "soft-life", label: "Soft Life", mood: "spa, sunsets, nice rooms, zero rush" },
-  { id: "party", label: "Party + Aesthetic", mood: "beach clubs, late dinners, music" },
-  { id: "spiritual", label: "Spiritual", mood: "temples, rituals, silence, meaning" }
-];
+// =============================
+// VIBETRIP — MASTER DATA
+// PHASE 1A
+// INDIA + INTERNATIONAL CORE
+// =============================
 
-const commonRevenue = [
-  ["Affiliate stays", "Hotels, villas, hostels"],
-  ["Experiences", "Tours, SIMs, transfers"],
-  ["Premium guide", "INR 149-499 itinerary unlock"],
-  ["Sponsored gems", "Boutique cafes and stays later"]
-];
+export const trips = [
 
-export const destinations = [
-  {
-    id: "bali",
-    name: "Bali",
-    country: "Indonesia",
-    image: "https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=1400&q=80",
-    banner: "https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?auto=format&fit=crop&w=1800&q=80",
-    line: "Temples, cafes, beach clubs, rice fields, and enough versions of you to choose from.",
-    tags: ["calm", "cafes", "beach clubs"],
-    vibeIds: ["healing", "cafes", "soft-life", "spiritual", "party", "girls-trip"],
-    budget: "INR 78k - 1.45L",
-    budgetMin: 78000,
-    days: "6-8 days",
-    bestTime: "April to October",
-    flight: "INR 22k - 38k from India",
-    score: 94,
-    mustGo: ["Ubud rice terraces", "Uluwatu cliff sunset", "Canggu cafe lane", "Tirta Empul", "Nusa Penida viewpoint"],
-    hiddenGems: ["Sidemen valley stay", "Sayan backroad cafes", "Amed black-sand sunrise"],
-    beforeYouGo: ["Check Indonesia e-VOA rules", "Carry an international card", "Install Grab/Gojek", "Keep one buffer day for traffic"],
-    costBreakdown: [["Flights", "INR 22k-38k"], ["Stay", "INR 24k-70k"], ["Food", "INR 12k-35k"], ["Transport", "INR 7k-20k"], ["Experiences", "INR 10k-30k"]],
-    revenue: commonRevenue,
-    moodOptions: [
-      {
-        id: "soft-bali",
-        vibeIds: ["healing", "soft-life", "spiritual", "cafes"],
-        title: "Soft Bali",
-        hook: "Ubud mornings, flower baths, journaling cafes, and one golden Uluwatu evening.",
-        premium: false,
-        itinerary: ["Land and sleep in Ubud", "Rice terraces + coffee tasting", "Temple morning + sound healing", "Waterfall + spa", "Uluwatu sunset"],
-        avoid: ["Do not force Ubud, Canggu, and Uluwatu into one day.", "Avoid villas without road-access reviews."]
-      },
-      {
-        id: "social-bali",
-        vibeIds: ["party", "girls-trip", "cafes"],
-        title: "Social Bali",
-        hook: "Canggu brunch, beach clubs, cute boutiques, and late dinners.",
-        premium: true,
-        itinerary: ["Canggu check-in", "Cafe crawl + beach club", "Seminyak shopping", "Uluwatu night", "Slow recovery brunch"],
-        avoid: ["Do not leave club reservations for Saturday night.", "Avoid scooters late if you are not confident."]
-      },
-      {
-        id: "budget-bali",
-        vibeIds: ["adventure", "cafes"],
-        title: "Budget Aesthetic Bali",
-        hook: "Hostels, scooters, cheap warungs, waterfall mornings, and still-pretty photos.",
-        premium: true,
-        itinerary: ["Ubud hostel base", "Waterfall route", "Local food crawl", "Nusa Penida day", "Canggu sunset"],
-        avoid: ["Do not pick the cheapest island tour blindly.", "Avoid moving hotels every night."]
-      }
-    ]
-  },
-  {
-    id: "japan",
-    name: "Japan",
-    country: "Japan",
-    image: "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=1400&q=80",
-    banner: "https://images.unsplash.com/photo-1526481280693-3bfa7568e0f3?auto=format&fit=crop&w=1800&q=80",
-    line: "For clean design, tiny details, train-window feelings, and food you plan your day around.",
-    tags: ["cinematic", "food", "culture"],
-    vibeIds: ["quiet-luxury", "cafes", "girls-trip", "soft-life"],
-    budget: "INR 1.35L - 2.4L",
-    budgetMin: 135000,
-    days: "7-10 days",
-    bestTime: "March-May, October-November",
-    flight: "INR 42k - 70k from India",
-    score: 91,
-    mustGo: ["Kyoto old streets", "Tokyo Daikanyama", "Osaka food lanes", "Hakone onsen", "TeamLab Borderless"],
-    hiddenGems: ["Kichijoji cafes", "Kurama day trip", "Yanaka slow walk"],
-    beforeYouGo: ["Book popular restaurants early", "Use Suica/Pasmo on phone if supported", "Pre-plan luggage forwarding", "Carry cash for small shops"],
-    costBreakdown: [["Flights", "INR 42k-70k"], ["Stay", "INR 45k-95k"], ["Food", "INR 25k-55k"], ["Transit", "INR 18k-40k"], ["Experiences", "INR 10k-35k"]],
-    revenue: commonRevenue,
-    moodOptions: [
-      { id: "soft-japan", vibeIds: ["quiet-luxury", "soft-life"], title: "Soft Japan", hook: "Boutique hotels, onsen days, design shops, and clean mornings.", premium: false, itinerary: ["Tokyo design day", "Kyoto ryokan", "Arashiyama early walk", "Hakone onsen", "Osaka dinner"], avoid: ["Do not overpack cities.", "Avoid peak transit with huge luggage."] },
-      { id: "cafe-japan", vibeIds: ["cafes", "girls-trip"], title: "Cafe Japan", hook: "Kissaten corners, matcha stops, photobooths, tiny bakeries.", premium: true, itinerary: ["Tokyo cafe map", "Shimokitazawa thrift", "Kyoto matcha", "Nara soft day", "Osaka dessert crawl"], avoid: ["Do not depend on late cafe hours.", "Avoid only staying near tourist stations."] }
-    ]
-  },
-  {
-    id: "goa",
-    name: "Goa",
-    country: "India",
-    image: "https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?auto=format&fit=crop&w=1400&q=80",
-    banner: "https://images.unsplash.com/photo-1560179406-1c6c60e0dc76?auto=format&fit=crop&w=1800&q=80",
-    line: "A weekend that can be soft, chaotic, luxe, or all three if you route it right.",
-    tags: ["weekend", "beaches", "nightlife"],
-    vibeIds: ["party", "girls-trip", "cafes", "soft-life"],
-    budget: "INR 18k - 55k",
-    budgetMin: 18000,
-    days: "3-5 days",
-    bestTime: "November to February",
-    flight: "INR 5k - 14k domestic",
-    score: 88,
-    mustGo: ["Assagao cafes", "Fontainhas", "Anjuna sunset", "South Goa beach day", "Mapusa market"],
-    hiddenGems: ["Aldona river roads", "Chorao island morning", "Cabo de Rama sunset"],
-    beforeYouGo: ["Pre-book weekend cabs", "Pick North or South as your base", "Carry beach-safe footwear", "Check club event calendars"],
-    costBreakdown: [["Flights/train", "INR 5k-14k"], ["Stay", "INR 8k-25k"], ["Food", "INR 5k-14k"], ["Cabs", "INR 3k-10k"], ["Nightlife", "INR 4k-16k"]],
-    revenue: commonRevenue,
-    moodOptions: [
-      { id: "goa-girls-weekend", vibeIds: ["girls-trip", "party", "cafes"], title: "Girls Weekend Goa", hook: "Safe stays, brunch, beach club, photo lanes, and no frantic driving.", premium: false, itinerary: ["North Goa check-in", "Assagao + Anjuna", "Fontainhas + beach club", "Slow checkout"], avoid: ["Do not bargain for random midnight cabs.", "Avoid splitting days across far beaches."] },
-      { id: "soft-goa", vibeIds: ["soft-life", "cafes"], title: "Soft Goa", hook: "South Goa, quieter beaches, pretty breakfasts, sunset dinners.", premium: true, itinerary: ["South Goa base", "Slow beach day", "Cabo sunset", "Old Goa + Fontainhas"], avoid: ["Do not stay too far from dinner spots.", "Avoid peak weekend beach shacks without booking."] }
-    ]
-  },
-  {
-    id: "coorg",
-    name: "Coorg",
-    country: "India",
-    image: "https://images.unsplash.com/photo-1609948543911-7f01ff385be5?auto=format&fit=crop&w=1400&q=80",
-    banner: "https://images.unsplash.com/photo-1593693397690-362cb9666fc2?auto=format&fit=crop&w=1800&q=80",
-    line: "Misty coffee estates, slow villas, and no pressure to be reachable.",
-    tags: ["misty", "coffee", "slow"],
-    vibeIds: ["healing", "quiet-luxury", "soft-life", "spiritual"],
-    budget: "INR 16k - 48k",
-    budgetMin: 16000,
-    days: "3-4 days",
-    bestTime: "October to March",
-    flight: "Best via Bengaluru + road",
-    score: 85,
-    mustGo: ["Coffee estate stay", "Abbey Falls", "Madikeri fort area", "Raja's Seat", "Plantation breakfast"],
-    hiddenGems: ["Kakkabe side roads", "Estate lunch experiences", "Quiet sunrise viewpoints"],
-    beforeYouGo: ["Book a driver if not self-driving", "Carry light layers", "Check rain before waterfall plans", "Pick stay quality over number of spots"],
-    costBreakdown: [["Road travel", "INR 4k-12k"], ["Stay", "INR 8k-25k"], ["Food", "INR 3k-8k"], ["Local cab", "INR 4k-10k"], ["Experiences", "INR 2k-6k"]],
-    revenue: commonRevenue,
-    moodOptions: [
-      { id: "healing-coorg", vibeIds: ["healing", "soft-life"], title: "Healing Coorg", hook: "Estate stay, coffee, naps, mist, and zero guilt about doing less.", premium: false, itinerary: ["Drive in", "Coffee estate morning", "Waterfall + lunch", "Viewpoint sunset"], avoid: ["Do not chase too many tourist points.", "Avoid stays far from main roads in heavy rain."] },
-      { id: "luxury-coorg", vibeIds: ["quiet-luxury"], title: "Quiet Luxury Coorg", hook: "A nicer estate room, private meals, spa time, and forest silence.", premium: true, itinerary: ["Check-in slow", "Estate tour", "Spa + viewpoint", "Late breakfast checkout"], avoid: ["Do not book without recent property photos.", "Avoid last-minute weekend rates."] }
-    ]
-  },
-  {
-    id: "vietnam",
-    name: "Vietnam",
-    country: "Vietnam",
-    image: "https://images.unsplash.com/photo-1528127269322-539801943592?auto=format&fit=crop&w=1400&q=80",
-    banner: "https://images.unsplash.com/photo-1559592413-7cec4d0cae2b?auto=format&fit=crop&w=1800&q=80",
-    line: "Budget-friendly, wildly pretty, and built for cafe-to-coast wandering.",
-    tags: ["budget", "street food", "views"],
-    vibeIds: ["adventure", "cafes", "girls-trip", "healing"],
-    budget: "INR 55k - 1.05L",
-    budgetMin: 55000,
-    days: "6-9 days",
-    bestTime: "February to April",
-    flight: "INR 18k - 34k from India",
-    score: 90,
-    mustGo: ["Hanoi old quarter", "Ninh Binh", "Hoi An lantern streets", "Da Nang beach", "Ha Long/Lan Ha Bay"],
-    hiddenGems: ["Train Street alternatives", "Tam Coc backroads", "Hoi An quiet coffee courtyards"],
-    beforeYouGo: ["Apply e-visa early", "Carry USD backup", "Check domestic flight baggage", "Use Grab for city rides"],
-    costBreakdown: [["Flights", "INR 18k-34k"], ["Stay", "INR 10k-28k"], ["Food", "INR 8k-20k"], ["Internal travel", "INR 8k-24k"], ["Tours", "INR 8k-24k"]],
-    revenue: commonRevenue,
-    moodOptions: [
-      { id: "vietnam-budget-aesthetic", vibeIds: ["adventure", "cafes"], title: "Budget Aesthetic Vietnam", hook: "Egg coffee, hostels, lantern nights, sleeper routes, and big landscapes.", premium: false, itinerary: ["Hanoi food", "Ninh Binh", "Bay day", "Hoi An", "Da Nang beach"], avoid: ["Do not book the cheapest bay cruise blindly.", "Avoid too many north-south jumps."] },
-      { id: "vietnam-girls", vibeIds: ["girls-trip", "cafes", "healing"], title: "Vietnam Girls Route", hook: "Cute stays, safe transfers, cafe maps, photos, and relaxed movement.", premium: true, itinerary: ["Hanoi cute stay", "Ninh Binh day", "Hoi An lantern night", "Beach morning", "Spa + cafe"], avoid: ["Do not arrive at bus stops too late.", "Avoid isolated stays without transport reviews."] }
-    ]
-  },
-  {
-    id: "sri-lanka",
-    name: "Sri Lanka",
-    country: "Sri Lanka",
-    image: "https://images.unsplash.com/photo-1586861635167-e5223aadc9fe?auto=format&fit=crop&w=1400&q=80",
-    banner: "https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&w=1800&q=80",
-    line: "Train rides, surf towns, tea hills, wildlife, and gentle tropical drama.",
-    tags: ["surf", "tea hills", "wildlife"],
-    vibeIds: ["adventure", "healing", "soft-life", "spiritual"],
-    budget: "INR 45k - 95k",
-    budgetMin: 45000,
-    days: "5-8 days",
-    bestTime: "December to April",
-    flight: "INR 12k - 24k from India",
-    score: 87,
-    mustGo: ["Ella train", "Galle Fort", "Mirissa", "Sigiriya", "Tea country"],
-    hiddenGems: ["Ahangama cafe strip", "Diyaluma Falls", "Hiriketiya beach"],
-    beforeYouGo: ["Check ETA rules", "Use PickMe in cities", "Book scenic train early", "Keep beach and hill layers"],
-    costBreakdown: [["Flights", "INR 12k-24k"], ["Stay", "INR 14k-35k"], ["Food", "INR 8k-18k"], ["Transport", "INR 8k-24k"], ["Experiences", "INR 6k-18k"]],
-    revenue: commonRevenue,
-    moodOptions: [
-      { id: "sri-soft", vibeIds: ["healing", "soft-life"], title: "Soft Sri Lanka", hook: "Tea hills, slow beaches, scenic trains, and pretty dinners.", premium: false, itinerary: ["Colombo arrival", "Ella train", "Tea hills", "Mirissa", "Galle"], avoid: ["Do not underestimate travel time.", "Avoid loose plans for scenic trains."] },
-      { id: "sri-adventure", vibeIds: ["adventure", "spiritual"], title: "Wild Sri Lanka", hook: "Sigiriya, safari, waterfalls, temples, and coast after the climb.", premium: true, itinerary: ["Sigiriya", "Kandy", "Ella", "Safari", "South coast"], avoid: ["Do not pack only beachwear.", "Avoid back-to-back long road days."] }
-    ]
-  },
-  {
-    id: "thailand",
-    name: "Thailand",
-    country: "Thailand",
-    image: "https://images.unsplash.com/photo-1508009603885-50cf7c579365?auto=format&fit=crop&w=1400&q=80",
-    banner: "https://images.unsplash.com/photo-1528181304800-259b08848526?auto=format&fit=crop&w=1800&q=80",
-    line: "Easy flights, island energy, shopping days, spa nights, and food that fixes moods.",
-    tags: ["islands", "shopping", "food"],
-    vibeIds: ["party", "girls-trip", "soft-life", "cafes"],
-    budget: "INR 55k - 1.2L",
-    budgetMin: 55000,
-    days: "5-8 days",
-    bestTime: "November to March",
-    flight: "INR 16k - 32k from India",
-    score: 89,
-    mustGo: ["Bangkok cafes", "Chiang Mai old city", "Phuket beaches", "Phi Phi", "Night markets"],
-    hiddenGems: ["Ari neighborhood cafes", "Koh Yao Noi", "Chiang Mai ceramic studios"],
-    beforeYouGo: ["Check visa rules for Indians", "Keep island ferry buffers", "Use Grab/Bolt", "Book ethical elephant experiences only"],
-    costBreakdown: [["Flights", "INR 16k-32k"], ["Stay", "INR 18k-45k"], ["Food", "INR 10k-25k"], ["Transfers", "INR 8k-22k"], ["Experiences", "INR 8k-25k"]],
-    revenue: commonRevenue,
-    moodOptions: [
-      { id: "thai-girls", vibeIds: ["girls-trip", "party"], title: "Thailand Girls Trip", hook: "Bangkok shopping, island photos, beach clubs, spa recovery.", premium: false, itinerary: ["Bangkok", "Cafe + shopping", "Phuket", "Island day", "Spa + night market"], avoid: ["Do not schedule tight ferry-flight connections.", "Avoid animal attractions with poor welfare."] },
-      { id: "thai-soft", vibeIds: ["soft-life", "cafes"], title: "Soft Thailand", hook: "Chiang Mai cafes, boutique stays, massages, and warm nights.", premium: true, itinerary: ["Chiang Mai", "Cafe map", "Temple morning", "Spa day", "Bangkok dining"], avoid: ["Do not skip air-quality checks in burning season.", "Avoid only staying in party zones."] }
-    ]
-  },
-  {
-    id: "dubai",
-    name: "Dubai",
-    country: "UAE",
-    image: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=1400&q=80",
-    banner: "https://images.unsplash.com/photo-1506970845246-18f21d533b20?auto=format&fit=crop&w=1800&q=80",
-    line: "Glossy, easy, shopping-heavy, skyline-coded, and perfect for a quick luxury reset.",
-    tags: ["luxury", "shopping", "quick trip"],
-    vibeIds: ["quiet-luxury", "girls-trip", "soft-life", "party"],
-    budget: "INR 70k - 1.6L",
-    budgetMin: 70000,
-    days: "4-6 days",
-    bestTime: "November to March",
-    flight: "INR 18k - 35k from India",
-    score: 84,
-    mustGo: ["Museum of the Future", "Alserkal Avenue", "Dubai Mall", "Desert dinner", "JBR/Marina"],
-    hiddenGems: ["Al Fahidi mornings", "Meydan sunset spots", "Jumeirah coffee corners"],
-    beforeYouGo: ["Check visa processing", "Reserve popular restaurants", "Plan outfits for dress codes", "Use metro plus cabs smartly"],
-    costBreakdown: [["Flights", "INR 18k-35k"], ["Stay", "INR 32k-80k"], ["Food", "INR 18k-45k"], ["Transport", "INR 8k-24k"], ["Experiences", "INR 12k-35k"]],
-    revenue: commonRevenue,
-    moodOptions: [
-      { id: "dubai-luxe", vibeIds: ["quiet-luxury", "soft-life"], title: "Dubai Luxe Reset", hook: "Skyline rooms, spa, museum, desert dinner, and good lighting everywhere.", premium: false, itinerary: ["Arrive + marina", "Museum + mall", "Desert dinner", "Beach club", "Brunch"], avoid: ["Do not underestimate restaurant minimum spends.", "Avoid midday outdoor plans in heat."] },
-      { id: "dubai-girls", vibeIds: ["girls-trip", "party"], title: "Dubai Girls Trip", hook: "Shopping, beach club, photos, dinners, and one dramatic night out.", premium: true, itinerary: ["JBR", "Mall + photos", "Beach club", "Dinner night", "Old Dubai"], avoid: ["Do not ignore dress codes.", "Avoid last-minute Saturday reservations."] }
-    ]
-  },
-  {
-    id: "kerala",
-    name: "Kerala",
-    country: "India",
-    image: "https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?auto=format&fit=crop&w=1400&q=80",
-    banner: "https://images.unsplash.com/photo-1593693397690-362cb9666fc2?auto=format&fit=crop&w=1800&q=80",
-    line: "Backwaters, tea gardens, slow wellness, monsoon greens, and coastal food.",
-    tags: ["wellness", "backwaters", "green"],
-    vibeIds: ["healing", "soft-life", "spiritual", "quiet-luxury"],
-    budget: "INR 22k - 70k",
-    budgetMin: 22000,
-    days: "4-7 days",
-    bestTime: "September to March",
-    flight: "INR 6k - 18k domestic",
-    score: 86,
-    mustGo: ["Alleppey backwaters", "Munnar tea", "Fort Kochi", "Varkala cliff", "Ayurveda stay"],
-    hiddenGems: ["Kumarakom mornings", "Marari beach", "Vagamon meadows"],
-    beforeYouGo: ["Pick one region if short on time", "Check monsoon road conditions", "Book houseboats carefully", "Carry breathable cotton"],
-    costBreakdown: [["Flights/train", "INR 6k-18k"], ["Stay", "INR 12k-38k"], ["Food", "INR 5k-14k"], ["Transport", "INR 8k-22k"], ["Experiences", "INR 4k-16k"]],
-    revenue: commonRevenue,
-    moodOptions: [
-      { id: "kerala-healing", vibeIds: ["healing", "spiritual"], title: "Healing Kerala", hook: "Ayurveda, backwaters, tea air, and a softer body clock.", premium: false, itinerary: ["Kochi", "Munnar", "Tea estate", "Backwater stay", "Slow checkout"], avoid: ["Do not combine every Kerala region in one week.", "Avoid unverified houseboats."] },
-      { id: "kerala-soft", vibeIds: ["soft-life", "quiet-luxury"], title: "Soft Kerala", hook: "Boutique resorts, coastal dinners, and green luxury without loudness.", premium: true, itinerary: ["Fort Kochi", "Marari", "Kumarakom", "Spa day", "Kochi cafe"], avoid: ["Do not leave resort transfers unclear.", "Avoid peak holiday booking delays."] }
-    ]
-  },
-  {
-    id: "rajasthan",
-    name: "Rajasthan",
-    country: "India",
-    image: "https://images.unsplash.com/photo-1477587458883-47145ed94245?auto=format&fit=crop&w=1400&q=80",
-    banner: "https://images.unsplash.com/photo-1599661046289-e31897846e41?auto=format&fit=crop&w=1800&q=80",
-    line: "Palaces, desert light, boutique havelis, silver jewelry, and old-world drama.",
-    tags: ["palaces", "heritage", "desert"],
-    vibeIds: ["quiet-luxury", "girls-trip", "spiritual", "cafes"],
-    budget: "INR 28k - 90k",
-    budgetMin: 28000,
-    days: "4-7 days",
-    bestTime: "October to March",
-    flight: "INR 6k - 18k domestic",
-    score: 83,
-    mustGo: ["Jaipur City Palace", "Udaipur lakes", "Jodhpur blue lanes", "Jaisalmer dunes", "Local bazaars"],
-    hiddenGems: ["Bar Palladio timing hack", "Bundi lanes", "Quiet haveli breakfasts"],
-    beforeYouGo: ["Book heritage stays early", "Plan sunrise/sunset shoots", "Carry sunscreen", "Check intercity drive times"],
-    costBreakdown: [["Flights/train", "INR 6k-18k"], ["Stay", "INR 14k-45k"], ["Food", "INR 6k-18k"], ["Transport", "INR 8k-25k"], ["Experiences", "INR 5k-20k"]],
-    revenue: commonRevenue,
-    moodOptions: [
-      { id: "rajasthan-luxe", vibeIds: ["quiet-luxury"], title: "Palace Soft Luxury", hook: "Heritage hotels, lake dinners, slow bazaars, and sunset terraces.", premium: false, itinerary: ["Jaipur palace day", "Bazaar + cafe", "Udaipur lakes", "Heritage dinner"], avoid: ["Do not stack too many cities.", "Avoid midday fort walks."] },
-      { id: "rajasthan-girls", vibeIds: ["girls-trip", "cafes"], title: "Rajasthan Girls Edit", hook: "Jewelry lanes, cafes, havelis, photos, and safe route planning.", premium: true, itinerary: ["Jaipur", "Cafe + bazaar", "Udaipur", "Boat sunset", "Slow brunch"], avoid: ["Do not leave intercity rides unbooked.", "Avoid overpacking outfits for heat."] }
-    ]
-  },
-  {
-    id: "maldives",
-    name: "Maldives",
-    country: "Maldives",
-    image: "https://images.unsplash.com/photo-1514282401047-d79a71a590e8?auto=format&fit=crop&w=1400&q=80",
-    banner: "https://images.unsplash.com/photo-1573843981267-be1999ff37cd?auto=format&fit=crop&w=1800&q=80",
-    line: "One island, blue water, no itinerary guilt, and luxury that mostly means silence.",
-    tags: ["island", "luxury", "honeymoon"],
-    vibeIds: ["quiet-luxury", "soft-life", "healing"],
-    budget: "INR 95k - 2.8L",
-    budgetMin: 95000,
-    days: "4-5 days",
-    bestTime: "November to April",
-    flight: "INR 20k - 38k from India",
-    score: 82,
-    mustGo: ["House reef", "Sandbank picnic", "Sunset cruise", "Spa session", "Floating breakfast if worth it"],
-    hiddenGems: ["Local island cafes", "Shoulder-season resort deals", "House-reef-first properties"],
-    beforeYouGo: ["Compare transfer costs", "Check meal plan inclusions", "Read reef reviews", "Pack reef-safe sunscreen"],
-    costBreakdown: [["Flights", "INR 20k-38k"], ["Stay", "INR 55k-2L"], ["Meals", "INR 15k-45k"], ["Transfers", "INR 12k-45k"], ["Experiences", "INR 8k-35k"]],
-    revenue: commonRevenue,
-    moodOptions: [
-      { id: "maldives-soft", vibeIds: ["soft-life", "healing"], title: "Maldives Soft Reset", hook: "Sleep, swim, eat, repeat. That is the feature.", premium: false, itinerary: ["Arrive", "Reef swim", "Spa day", "Sandbank", "Lazy checkout"], avoid: ["Do not ignore speedboat/seaplane costs.", "Avoid resorts with weak meal plans."] },
-      { id: "maldives-luxe", vibeIds: ["quiet-luxury"], title: "Quiet Luxury Maldives", hook: "House reef, nicer room category, fewer decisions, better food.", premium: true, itinerary: ["Water villa", "Private dinner", "Snorkel", "Spa", "Sunset cruise"], avoid: ["Do not pay for overwater only for photos.", "Avoid poor reef access."] }
-    ]
-  }
-];
+  // =====================================================
+  // INDIA
+  // =====================================================
 
-destinations.push(
   {
-    id: "paris",
-    name: "Paris",
-    country: "France",
-    image: "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=1400&q=80",
-    banner: "https://images.unsplash.com/photo-1499856871958-5b9627545d1a?auto=format&fit=crop&w=1800&q=80",
-    line: "Museums, perfume counters, tiny tables, late walks, and feeling overdressed in the best way.",
-    tags: ["fashion", "cafes", "museums"],
-    vibeIds: ["quiet-luxury", "cafes", "girls-trip", "soft-life"],
-    budget: "INR 1.45L - 2.8L",
-    budgetMin: 145000,
-    days: "5-7 days",
-    bestTime: "April-June, September-October",
-    flight: "INR 48k - 85k from India",
-    score: 86,
-    mustGo: ["Le Marais", "Musee d'Orsay", "Seine sunset", "Saint-Germain", "Montmartre morning"],
-    hiddenGems: ["Canal Saint-Martin corners", "Musee Rodin garden hour", "Galerie Vivienne"],
-    cafeRecs: ["Cafe de Flore", "Boot Cafe", "Ten Belles", "Partisan Cafe"],
-    beforeYouGo: ["Book museum slots", "Keep anti-theft basics", "Use Navigo/metro passes", "Reserve popular dinners"],
-    costBreakdown: [["Flights", "INR 48k-85k"], ["Stay", "INR 60k-1.2L"], ["Food", "INR 28k-65k"], ["Transit", "INR 8k-18k"], ["Experiences", "INR 15k-45k"]],
-    revenue: commonRevenue,
-    moodOptions: [
-      { id: "paris-fashion", vibeIds: ["quiet-luxury", "girls-trip"], title: "Fashion Week Feel", hook: "Concept stores, perfume, gallery walks, and polished dinners.", premium: true, itinerary: ["Le Marais", "Perfume stop", "Gallery lunch", "Seine walk", "Saint-Germain dinner"], avoid: ["Do not wing popular restaurants.", "Avoid packed museum hours."] },
-      { id: "paris-cafe", vibeIds: ["cafes", "soft-life"], title: "Cafe Paris", hook: "Slow mornings, tiny tables, bookstores, and buttery plans.", premium: true, itinerary: ["Left Bank breakfast", "Bookshop route", "Musee d'Orsay", "Canal cafes", "Golden hour Seine"], avoid: ["Do not overplan arrondissement jumps.", "Avoid only eating near landmarks."] }
-    ]
-  },
-  {
-    id: "seoul",
-    name: "Seoul",
-    country: "South Korea",
-    image: "https://images.unsplash.com/photo-1538485399081-7c8edffc8bb7?auto=format&fit=crop&w=1400&q=80",
-    banner: "https://images.unsplash.com/photo-1548115184-bc6544d06a58?auto=format&fit=crop&w=1800&q=80",
-    line: "Skincare runs, concept cafes, late-night food, clean trains, and main-character shopping.",
-    tags: ["skincare", "cafes", "shopping"],
-    vibeIds: ["cafes", "girls-trip", "party", "quiet-luxury"],
-    budget: "INR 1.05L - 2.1L",
-    budgetMin: 105000,
-    days: "6-8 days",
-    bestTime: "April-June, September-November",
-    flight: "INR 38k - 70k from India",
-    score: 88,
-    mustGo: ["Seongsu", "Hannam", "Hongdae", "Bukchon", "Myeongdong"],
-    hiddenGems: ["Mangwon market lanes", "Ikseon-dong evenings", "Seoul Forest cafe pockets"],
-    cafeRecs: ["Onion Anguk", "Anthracite", "Cafe Layered", "Teddy Beurre House"],
-    beforeYouGo: ["Install Naver Map", "Get T-money card", "Check clinic bookings", "Carry passport for tax refunds"],
-    costBreakdown: [["Flights", "INR 38k-70k"], ["Stay", "INR 38k-85k"], ["Food", "INR 18k-42k"], ["Transit", "INR 6k-14k"], ["Shopping/experiences", "INR 20k-70k"]],
-    revenue: commonRevenue,
-    moodOptions: [
-      { id: "seoul-cafe", vibeIds: ["cafes", "girls-trip"], title: "Cafe Seoul", hook: "Seongsu warehouses, bakeries, photo booths, and skincare stops.", premium: true, itinerary: ["Seongsu cafe map", "Hannam boutiques", "Myeongdong skincare", "Hongdae night", "Bukchon morning"], avoid: ["Do not rely only on Google Maps.", "Avoid Sundays for some boutiques."] },
-      { id: "seoul-night", vibeIds: ["party", "girls-trip"], title: "Night Seoul", hook: "BBQ dinners, neon lanes, safe transit, and late dessert.", premium: true, itinerary: ["Hongdae", "BBQ dinner", "Karaoke", "Convenience-store dessert", "Slow brunch"], avoid: ["Do not miss last train timing.", "Avoid unmarked taxis."] }
-    ]
-  },
-  {
-    id: "singapore",
-    name: "Singapore",
-    country: "Singapore",
-    image: "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?auto=format&fit=crop&w=1400&q=80",
-    banner: "https://images.unsplash.com/photo-1565967511849-76a60a516170?auto=format&fit=crop&w=1800&q=80",
-    line: "Clean, compact, food-obsessed, design-heavy, and perfect when you want easy international.",
-    tags: ["food", "design", "easy"],
-    vibeIds: ["quiet-luxury", "cafes", "girls-trip", "soft-life"],
-    budget: "INR 75k - 1.7L",
-    budgetMin: 75000,
-    days: "4-5 days",
-    bestTime: "February-April, July-September",
-    flight: "INR 20k - 38k from India",
-    score: 85,
-    mustGo: ["Tiong Bahru", "Gardens by the Bay", "Jewel Changi", "Haji Lane", "Marina Bay"],
-    hiddenGems: ["Dempsey Hill", "Joo Chiat shophouses", "Gillman Barracks"],
-    cafeRecs: ["Tiong Bahru Bakery", "Plain Vanilla", "Merci Marcel", "Nylon Coffee"],
-    beforeYouGo: ["Use MRT + Grab", "Book attractions online", "Carry light rainwear", "Plan hawker meals by area"],
-    costBreakdown: [["Flights", "INR 20k-38k"], ["Stay", "INR 36k-90k"], ["Food", "INR 14k-35k"], ["Transit", "INR 5k-12k"], ["Experiences", "INR 12k-35k"]],
-    revenue: commonRevenue,
-    moodOptions: [
-      { id: "singapore-clean-girl", vibeIds: ["quiet-luxury", "soft-life"], title: "Clean Girl Singapore", hook: "Design hotels, gardens, shopping, and no logistical drama.", premium: true, itinerary: ["Jewel arrival", "Marina walk", "Gardens", "Dempsey dinner", "Tiong Bahru brunch"], avoid: ["Do not overpay for taxis at peak.", "Avoid outdoor-heavy afternoons."] },
-      { id: "singapore-cafe", vibeIds: ["cafes", "girls-trip"], title: "Cafe + Hawker Edit", hook: "Pretty brunch, hawker icons, shophouse walks, and shopping breaks.", premium: true, itinerary: ["Tiong Bahru", "Joo Chiat", "Haji Lane", "Hawker dinner", "Orchard"], avoid: ["Do not eat only in malls.", "Avoid skipping hydration."] }
-    ]
-  },
-  {
-    id: "turkey",
-    name: "Turkey",
-    country: "Turkey",
-    image: "https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?auto=format&fit=crop&w=1400&q=80",
-    banner: "https://images.unsplash.com/photo-1541432901042-2d8bd64b4a9b?auto=format&fit=crop&w=1800&q=80",
-    line: "Rooftop breakfasts, hammams, bazaars, balloons, coastlines, and cinematic chaos.",
-    tags: ["bazaars", "hammam", "views"],
-    vibeIds: ["adventure", "girls-trip", "spiritual", "cafes"],
-    budget: "INR 95k - 1.9L",
-    budgetMin: 95000,
-    days: "7-9 days",
-    bestTime: "April-June, September-October",
-    flight: "INR 32k - 62k from India",
-    score: 87,
-    mustGo: ["Istanbul old city", "Galata", "Cappadocia", "Grand Bazaar", "Bosphorus"],
-    hiddenGems: ["Balat streets", "Kadikoy food side", "Uchisar viewpoints"],
-    cafeRecs: ["Federal Galata", "Mangerie", "Petra Roasting", "Mandabatmaz"],
-    beforeYouGo: ["Check visa/e-visa", "Book balloon buffer nights", "Carry scarf for mosques", "Use BiTaksi in Istanbul"],
-    costBreakdown: [["Flights", "INR 32k-62k"], ["Stay", "INR 32k-75k"], ["Food", "INR 16k-38k"], ["Internal travel", "INR 18k-45k"], ["Experiences", "INR 18k-60k"]],
-    revenue: commonRevenue,
-    moodOptions: [
-      { id: "turkey-cinematic", vibeIds: ["girls-trip", "cafes"], title: "Cinematic Turkey", hook: "Rooftop breakfasts, Galata lanes, hammam, and Cappadocia photos.", premium: true, itinerary: ["Istanbul arrival", "Old city", "Galata + hammam", "Cappadocia", "Balloon morning"], avoid: ["Do not book one Cappadocia night only.", "Avoid taxis without app/price clarity."] },
-      { id: "turkey-adventure", vibeIds: ["adventure", "spiritual"], title: "Soul + Stone Route", hook: "Mosques, valleys, ancient streets, and slow tea stops.", premium: true, itinerary: ["Sultanahmet", "Bosphorus", "Cappadocia valleys", "Sunrise viewpoint", "Bazaar"], avoid: ["Do not ignore modest dress days.", "Avoid midday summer climbs."] }
-    ]
-  },
-  {
-    id: "greece",
-    name: "Greece",
-    country: "Greece",
-    image: "https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&w=1400&q=80",
-    banner: "https://images.unsplash.com/photo-1516483638261-f4dbaf036963?auto=format&fit=crop&w=1800&q=80",
-    line: "Whitewashed islands, seaside dinners, linen outfits, ferries, and golden-hour everything.",
-    tags: ["islands", "sunset", "linen"],
-    vibeIds: ["soft-life", "quiet-luxury", "girls-trip", "party"],
-    budget: "INR 1.35L - 2.8L",
-    budgetMin: 135000,
-    days: "6-8 days",
-    bestTime: "May-June, September",
-    flight: "INR 45k - 80k from India",
-    score: 84,
-    mustGo: ["Athens Plaka", "Santorini sunset", "Paros villages", "Mykonos beach", "Naxos old town"],
-    hiddenGems: ["Milos boat day", "Antiparos evening", "Anafiotika lanes"],
-    cafeRecs: ["Little Tree Athens", "The Underdog", "Passaggio Santorini", "Yard Paros"],
-    beforeYouGo: ["Book ferries with buffers", "Choose islands by vibe", "Carry sunscreen", "Check luggage rules"],
-    costBreakdown: [["Flights", "INR 45k-80k"], ["Stay", "INR 55k-1.4L"], ["Food", "INR 25k-60k"], ["Ferries", "INR 18k-45k"], ["Experiences", "INR 14k-40k"]],
-    revenue: commonRevenue,
-    moodOptions: [
-      { id: "greece-soft", vibeIds: ["soft-life", "quiet-luxury"], title: "Linen Island Route", hook: "Santorini views, Paros villages, long dinners, and unbothered mornings.", premium: true, itinerary: ["Athens", "Santorini", "Boat day", "Paros", "Slow beach"], avoid: ["Do not island-hop too fast.", "Avoid July-August if budget-sensitive."] },
-      { id: "greece-girls", vibeIds: ["girls-trip", "party"], title: "Greek Girls Summer", hook: "Beach clubs, cute villages, photos, seafood, and ferry timing handled.", premium: true, itinerary: ["Athens", "Mykonos", "Beach club", "Paros", "Sunset dinner"], avoid: ["Do not book late ferries before flights.", "Avoid staying far from ports without transfers."] }
-    ]
-  },
-  {
-    id: "morocco",
-    name: "Morocco",
-    country: "Morocco",
-    image: "https://images.unsplash.com/photo-1539020140153-e8c237112e53?auto=format&fit=crop&w=1400&q=80",
-    banner: "https://images.unsplash.com/photo-1489749798305-4fea3ae63d43?auto=format&fit=crop&w=1800&q=80",
-    line: "Riads, souks, desert light, mint tea, tiled courtyards, and textured everything.",
-    tags: ["riads", "desert", "souks"],
-    vibeIds: ["adventure", "spiritual", "girls-trip", "quiet-luxury"],
-    budget: "INR 1.15L - 2.2L",
-    budgetMin: 115000,
-    days: "7-9 days",
-    bestTime: "March-May, September-November",
-    flight: "INR 42k - 78k from India",
-    score: 83,
-    mustGo: ["Marrakech medina", "Jardin Majorelle", "Agafay desert", "Fes medina", "Chefchaouen"],
-    hiddenGems: ["Riad rooftop mornings", "Essaouira coast", "Le Jardin Secret"],
-    cafeRecs: ["Nomad", "Cafe des Epices", "Bacha Coffee", "Plus61"],
-    beforeYouGo: ["Book riad transfers", "Dress modestly in medinas", "Carry cash", "Use guides for dense souks"],
-    costBreakdown: [["Flights", "INR 42k-78k"], ["Stay", "INR 35k-85k"], ["Food", "INR 18k-42k"], ["Transport", "INR 18k-45k"], ["Experiences", "INR 15k-50k"]],
-    revenue: commonRevenue,
-    moodOptions: [
-      { id: "morocco-design", vibeIds: ["quiet-luxury", "girls-trip"], title: "Riad Design Route", hook: "Courtyards, tiled pools, rooftop breakfasts, and souk styling.", premium: true, itinerary: ["Riad check-in", "Majorelle", "Souk guided walk", "Agafay dinner", "Hammam"], avoid: ["Do not wander dense souks late alone.", "Avoid riads without transfer help."] },
-      { id: "morocco-adventure", vibeIds: ["adventure", "spiritual"], title: "Desert + Medina", hook: "Medina mornings, desert dinner, old cities, and quiet tea stops.", premium: true, itinerary: ["Marrakech", "Agafay", "Fes", "Chefchaouen", "Coast"], avoid: ["Do not underestimate drive times.", "Avoid unlicensed guides."] }
-    ]
-  },
-  {
-    id: "bhutan",
-    name: "Bhutan",
-    country: "Bhutan",
-    image: "https://images.unsplash.com/photo-1605640840605-14ac1855827b?auto=format&fit=crop&w=1400&q=80",
-    banner: "https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=1800&q=80",
-    line: "Mountain air, monasteries, quiet roads, and the rare feeling of slowing down fully.",
-    tags: ["monasteries", "mountains", "quiet"],
-    vibeIds: ["spiritual", "healing", "quiet-luxury", "adventure"],
-    budget: "INR 65k - 1.45L",
-    budgetMin: 65000,
-    days: "5-7 days",
-    bestTime: "March-May, September-November",
-    flight: "INR 18k - 36k from India",
-    score: 86,
-    mustGo: ["Tiger's Nest", "Thimphu", "Punakha Dzong", "Dochula Pass", "Paro valley"],
-    hiddenGems: ["Gangtey valley", "Riverside farm lunches", "Quiet monastery courtyards"],
-    cafeRecs: ["Ambient Cafe", "Mountain Cafe", "Champaca Cafe", "Brioche Cafe"],
-    beforeYouGo: ["Check sustainable development fee", "Book through local operators if needed", "Carry layers", "Respect monastery rules"],
-    costBreakdown: [["Flights", "INR 18k-36k"], ["Stay", "INR 25k-70k"], ["Food", "INR 8k-20k"], ["Guide/transport", "INR 20k-45k"], ["Permits/experiences", "INR 8k-30k"]],
-    revenue: commonRevenue,
-    moodOptions: [
-      { id: "bhutan-spiritual", vibeIds: ["spiritual", "healing"], title: "Monastery Reset", hook: "Paro, Punakha, quiet roads, and the Tiger's Nest climb.", premium: true, itinerary: ["Paro", "Thimphu", "Punakha", "Tiger's Nest", "Slow valley"], avoid: ["Do not rush the altitude days.", "Avoid ignoring temple etiquette."] },
-      { id: "bhutan-luxury", vibeIds: ["quiet-luxury"], title: "Mountain Luxury", hook: "Design lodges, slow meals, valley views, and curated drives.", premium: true, itinerary: ["Paro lodge", "Thimphu design", "Punakha stay", "Spa", "Tiger's Nest"], avoid: ["Do not book luxury stays without transfer clarity.", "Avoid overstuffed days."] }
-    ]
-  },
-  {
-    id: "andaman",
-    name: "Andaman",
-    country: "India",
-    image: "https://images.unsplash.com/photo-1589308078059-be1415eab4c3?auto=format&fit=crop&w=1400&q=80",
-    banner: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=1800&q=80",
-    line: "Blue water without leaving India, beach mornings, ferries, scuba, and quiet island nights.",
-    tags: ["beaches", "scuba", "islands"],
-    vibeIds: ["healing", "adventure", "soft-life", "girls-trip"],
-    budget: "INR 45k - 1.1L",
-    budgetMin: 45000,
-    days: "5-7 days",
-    bestTime: "November to April",
-    flight: "INR 14k - 32k domestic",
-    score: 84,
-    mustGo: ["Havelock", "Radhanagar Beach", "Neil Island", "Scuba/snorkel", "Cellular Jail"],
-    hiddenGems: ["Kalapathar sunrise", "Laxmanpur sunset", "Quiet beach shack mornings"],
-    cafeRecs: ["Full Moon Cafe", "Something Different", "Fat Martin", "Dugong Cafe"],
-    beforeYouGo: ["Book ferries early", "Carry cash", "Check weather before water activities", "Keep buffer before return flight"],
-    costBreakdown: [["Flights", "INR 14k-32k"], ["Stay", "INR 18k-50k"], ["Food", "INR 8k-20k"], ["Ferries/cabs", "INR 7k-18k"], ["Water activities", "INR 8k-30k"]],
-    revenue: commonRevenue,
-    moodOptions: [
-      { id: "andaman-blue-reset", vibeIds: ["healing", "soft-life"], title: "Blue Reset", hook: "Havelock beaches, slow cafes, swims, and no city noise.", premium: true, itinerary: ["Port Blair", "Havelock", "Radhanagar", "Neil Island", "Lazy return"], avoid: ["Do not book tight ferry-flight combos.", "Avoid monsoon water activity assumptions."] },
-      { id: "andaman-adventure", vibeIds: ["adventure", "girls-trip"], title: "Scuba + Island Route", hook: "Dives, beach hops, ferries, and group-friendly island pacing.", premium: true, itinerary: ["Havelock", "Scuba day", "Kalapathar", "Neil", "Snorkel"], avoid: ["Do not dive right before flying.", "Avoid unlicensed operators."] }
-    ]
-  },
-  {
-    id: "ladakh",
-    name: "Ladakh",
-    country: "India",
-    image: "https://images.unsplash.com/photo-1581793745862-99fde7fa73d2?auto=format&fit=crop&w=1400&q=80",
-    banner: "https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?auto=format&fit=crop&w=1800&q=80",
-    line: "High-altitude moonscapes, monasteries, lakes, silence, and a trip that feels earned.",
-    tags: ["mountains", "monasteries", "roadtrip"],
-    vibeIds: ["adventure", "spiritual", "healing"],
-    budget: "INR 42k - 1.05L",
-    budgetMin: 42000,
-    days: "6-8 days",
-    bestTime: "June to September",
-    flight: "INR 12k - 28k domestic",
-    score: 85,
-    mustGo: ["Leh", "Pangong", "Nubra", "Thiksey monastery", "Shanti Stupa"],
-    hiddenGems: ["Turtuk village", "Hemis quiet corners", "Alchi monastery"],
-    cafeRecs: ["Lehvenda Cafe", "Lala's Cafe", "Bon Appetit", "OpenHand Cafe"],
-    beforeYouGo: ["Acclimatize first", "Carry layers", "Check permits", "Avoid alcohol early"],
-    costBreakdown: [["Flights", "INR 12k-28k"], ["Stay", "INR 14k-35k"], ["Food", "INR 7k-18k"], ["Transport", "INR 18k-45k"], ["Permits/experiences", "INR 4k-12k"]],
-    revenue: commonRevenue,
-    moodOptions: [
-      { id: "ladakh-spiritual", vibeIds: ["spiritual", "healing"], title: "Monastery + Silence", hook: "Slow acclimatization, monasteries, lake views, and early nights.", premium: true, itinerary: ["Leh rest", "Monastery day", "Nubra", "Pangong", "Slow return"], avoid: ["Do not skip acclimatization.", "Avoid packed arrival day plans."] },
-      { id: "ladakh-adventure", vibeIds: ["adventure"], title: "High Road Adventure", hook: "Road days, dramatic passes, cold air, and big-view pacing.", premium: true, itinerary: ["Leh", "Khardung La", "Nubra", "Pangong", "Turtuk"], avoid: ["Do not ignore weather closures.", "Avoid poor vehicle operators."] }
-    ]
-  },
-  {
-    id: "himachal",
-    name: "Himachal",
-    country: "India",
-    image: "https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?auto=format&fit=crop&w=1400&q=80",
-    banner: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1800&q=80",
-    line: "Mountain cafes, pine roads, hostel energy, workation corners, and soft foggy mornings.",
-    tags: ["mountains", "cafes", "workation"],
-    vibeIds: ["cafes", "adventure", "healing", "party"],
-    budget: "INR 18k - 60k",
-    budgetMin: 18000,
-    days: "4-7 days",
-    bestTime: "March-June, October-November",
-    flight: "Best via Delhi/Chandigarh + road",
-    score: 82,
-    mustGo: ["Manali old town", "Dharamkot", "Bir", "Jibhi", "Kasol"],
-    hiddenGems: ["Sethan", "Tirthan riverside stays", "Naggar art corners"],
-    cafeRecs: ["Johnson's Cafe", "Moonpeak", "June 16", "Garden Cafe"],
-    beforeYouGo: ["Check road status", "Pick one valley", "Carry layers", "Book buses in advance"],
-    costBreakdown: [["Travel", "INR 4k-14k"], ["Stay", "INR 8k-24k"], ["Food", "INR 5k-14k"], ["Local transport", "INR 4k-12k"], ["Experiences", "INR 3k-12k"]],
-    revenue: commonRevenue,
-    moodOptions: [
-      { id: "himachal-cafe", vibeIds: ["cafes", "healing"], title: "Mountain Cafe Route", hook: "Dharamkot mornings, pine walks, book cafes, and slow evenings.", premium: true, itinerary: ["Dharamkot", "Cafe day", "Waterfall walk", "Bir", "Slow return"], avoid: ["Do not switch towns daily.", "Avoid bad-weather bike plans."] },
-      { id: "himachal-adventure", vibeIds: ["adventure", "party"], title: "Hostel + Hike Edit", hook: "Hostels, short hikes, bonfire nights, and budget mountain socializing.", premium: true, itinerary: ["Manali", "Sethan", "Cafe night", "Hike day", "Naggar"], avoid: ["Do not underestimate road fatigue.", "Avoid isolated late-night walks."] }
-    ]
-  },
-  {
-    id: "mauritius",
-    name: "Mauritius",
-    country: "Mauritius",
-    image: "https://images.unsplash.com/photo-1548574505-5e239809ee19?auto=format&fit=crop&w=1400&q=80",
-    banner: "https://images.unsplash.com/photo-1527631746610-bca00a040d60?auto=format&fit=crop&w=1800&q=80",
-    line: "Lagoon water, road trips, resort softness, waterfalls, and island days with more movement than Maldives.",
-    tags: ["island", "resort", "waterfalls"],
-    vibeIds: ["soft-life", "adventure", "quiet-luxury", "healing"],
-    budget: "INR 1.05L - 2.3L",
-    budgetMin: 105000,
-    days: "5-7 days",
-    bestTime: "May-December",
-    flight: "INR 38k - 72k from India",
-    score: 81,
-    mustGo: ["Le Morne", "Chamarel", "Ile aux Cerfs", "Grand Baie", "Black River Gorges"],
-    hiddenGems: ["Rochester Falls", "Mahebourg waterfront", "Gris Gris cliffs"],
-    cafeRecs: ["Cafe LUX", "Vanilla Village", "The Good Life", "Artisan Coffee"],
-    beforeYouGo: ["Rent car or book driver", "Check resort meal plans", "Carry beach and hike shoes", "Plan south and north separately"],
-    costBreakdown: [["Flights", "INR 38k-72k"], ["Stay", "INR 45k-1.2L"], ["Food", "INR 18k-45k"], ["Transport", "INR 15k-40k"], ["Experiences", "INR 12k-35k"]],
-    revenue: commonRevenue,
-    moodOptions: [
-      { id: "mauritius-soft", vibeIds: ["soft-life", "quiet-luxury"], title: "Lagoon Soft Life", hook: "Resort mornings, Le Morne views, spa, and slow island dinners.", premium: true, itinerary: ["Resort check-in", "Le Morne", "Chamarel", "Ile aux Cerfs", "Slow beach"], avoid: ["Do not stay too far from planned regions.", "Avoid assuming taxis are cheap."] },
-      { id: "mauritius-adventure", vibeIds: ["adventure", "healing"], title: "Waterfall + Coast", hook: "South island drives, waterfalls, hikes, beaches, and blue water breaks.", premium: true, itinerary: ["South coast", "Chamarel", "Black River", "Catamaran", "North day"], avoid: ["Do not skip weather checks.", "Avoid overpacking resort-only clothes."] }
-    ]
-  }
-);
+    id: "hampi-weekend",
 
-for (const destination of destinations) {
-  destination.cafeRecs ||= [`${destination.name} signature cafe`, `${destination.name} quiet breakfast spot`, `${destination.name} sunset coffee stop`];
-  const hasRoute = (id) => destination.moodOptions.some((route) => route.id === id);
-  const firstMust = destination.mustGo[0] || destination.name;
-  const firstGem = destination.hiddenGems[0] || `${destination.name} slow corner`;
+    title: "Temple Trails + Golden Hour Boulders",
 
-  if (destination.vibeIds.includes("cafes") && !destination.moodOptions.some((route) => route.vibeIds.includes("cafes") && route.title.toLowerCase().includes("cafe"))) {
-    destination.moodOptions.push({
-      id: `${destination.id}-cafe-crawl`,
-      vibeIds: ["cafes", "girls-trip"],
-      title: "Cafe Crawl Edit",
-      hook: `${destination.name} through coffee, photogenic streets, easy walks, and one low-effort dinner.`,
-      premium: true,
-      itinerary: [`Start near ${destination.cafeRecs[0]}`, `Walk ${firstMust}`, `Save ${firstGem} for golden hour`, "Dinner close to your stay"],
-      avoid: ["Do not cross the city for every cafe.", "Avoid places with pretty photos but weak recent reviews."]
-    });
-  }
+    duration: "2–3 Days",
 
-  if (destination.vibeIds.includes("adventure") && !hasRoute(`${destination.id}-active-route`)) {
-    destination.moodOptions.push({
-      id: `${destination.id}-active-route`,
-      vibeIds: ["adventure", "healing"],
-      title: "Active Reset",
-      hook: `${destination.name} with movement, views, early starts, and recovery meals built in.`,
-      premium: true,
-      itinerary: [`Base near ${firstMust}`, "Early outdoor block", `Detour to ${firstGem}`, "Recovery cafe or spa", "Slow final morning"],
-      avoid: ["Do not stack intense travel days back-to-back.", "Avoid booking weather-sensitive experiences without a buffer."]
-    });
-  }
+    locations: [
+      "Hampi"
+    ],
 
-  if (destination.vibeIds.includes("spiritual") && !hasRoute(`${destination.id}-soul-route`)) {
-    destination.moodOptions.push({
-      id: `${destination.id}-soul-route`,
-      vibeIds: ["spiritual", "healing"],
-      title: "Soul Reset",
-      hook: `${destination.name} with quiet mornings, ritual spaces, soft food stops, and less noise.`,
-      premium: true,
-      itinerary: ["Slow arrival", `Morning at ${firstMust}`, "Long lunch", `Quiet hour near ${firstGem}`, "Early night"],
-      avoid: ["Do not turn sacred places into photo-only stops.", "Avoid loud zones if rest is the goal."]
-    });
-  }
+    routeType: "quick-escape",
 
-  if (destination.vibeIds.includes("party") && !hasRoute(`${destination.id}-social-route`)) {
-    destination.moodOptions.push({
-      id: `${destination.id}-social-route`,
-      vibeIds: ["party", "girls-trip"],
-      title: "Social Night Edit",
-      hook: `${destination.name} with safe transfers, dinner-first plans, and a night-out route that still feels aesthetic.`,
-      premium: true,
-      itinerary: ["Late brunch", "Shopping or beach block", "Golden hour stop", "Dinner reservation", "One curated night-out area"],
-      avoid: ["Do not leave return transport vague.", "Avoid hopping across far nightlife zones."]
-    });
-  }
-}
+    identity:
+      "Ancient ruins, boulder sunsets, coracle rides, cafe mornings, and slower backpacker pacing.",
 
-export const packages = destinations.flatMap((destination) =>
-  destination.moodOptions.map((option) => ({
-    ...option,
-    destinationId: destination.id,
-    budget: destination.costBreakdown,
-    affiliate: `https://www.booking.com/searchresults.html?ss=${encodeURIComponent(destination.name)}`
-  }))
-);
+    dontMiss:
+      "Matanga Hill before sunrise when the entire landscape turns gold.",
 
-export const hiddenGems = destinations.flatMap((destination) =>
-  destination.hiddenGems.map((gem) => ({ destinationId: destination.id, gem }))
-);
+    hiddenGem:
+      "Riverside hippie side cafes before 11 AM.",
 
+    bestFor: [
+      "Friends",
+      "Solo trips",
+      "Long weekends"
+    ],
 
-// ===== EXPANDED DESTINATION METADATA =====
+    vibeTags: [
+      "sunsets",
+      "history",
+      "slow-travel",
+      "cafes"
+    ],
 
-export const smartTravelMeta = {
-  bali: {
-    bestMonths: ["April","May","June","July","August","September"],
+    bestMonths: [
+      "October",
+      "November",
+      "December",
+      "January",
+      "February"
+    ],
+
+    budgets: {
+      budget: "₹7k–12k",
+      mid: "₹18k–30k",
+      luxury: "₹45k+"
+    },
+
+    estimatedDaily:
+      "₹3k–6k/day realistically covers stays, cafes, scooters, and transfers.",
+
+    image:
+      "https://images.unsplash.com/photo-1566552881560-0be862a7c445?q=80&w=1400"
+  },
+
+  {
+    id: "pondicherry-auroville",
+
+    title: "French Streets + Coastal Mornings",
+
+    duration: "2–3 Days",
+
+    locations: [
+      "Pondicherry",
+      "Auroville"
+    ],
+
+    routeType: "quick-escape",
+
+    identity:
+      "French cafes, coastal roads, boutique stays, bakery mornings, and slower beach-town pacing.",
+
+    dontMiss:
+      "Auroville bakery runs before the breakfast crowd starts.",
+
+    hiddenGem:
+      "White Town side streets during golden hour.",
+
+    bestFor: [
+      "Couples",
+      "Cafe people",
+      "Weekend drives"
+    ],
+
+    vibeTags: [
+      "cafes",
+      "coastal",
+      "slow-travel",
+      "architecture"
+    ],
+
+    bestMonths: [
+      "October",
+      "November",
+      "December",
+      "January"
+    ],
+
+    budgets: {
+      budget: "₹8k–15k",
+      mid: "₹22k–40k",
+      luxury: "₹60k+"
+    },
+
+    estimatedDaily:
+      "₹4k–8k/day depending on boutique stays and cafe choices.",
+
+    image:
+      "https://images.unsplash.com/photo-1473116763249-2faaef81ccda?q=80&w=1400"
+  },
+
+  {
+    id: "coorg-estates",
+
+    title: "Coffee Estates + Rain Roads",
+
+    duration: "2–3 Days",
+
+    locations: [
+      "Coorg"
+    ],
+
+    routeType: "quick-escape",
+
+    identity:
+      "Estate stays, rain drives, hidden cafes, fog-heavy mornings, and quieter luxury.",
+
+    dontMiss:
+      "Kabbe Hills sunrise before visibility disappears into fog.",
+
+    hiddenGem:
+      "Private estate roads near Pollibetta after rainfall.",
+
+    bestFor: [
+      "Couples",
+      "Road trips",
+      "Monsoon escapes"
+    ],
+
+    vibeTags: [
+      "rain",
+      "coffee",
+      "mountains",
+      "luxury"
+    ],
+
+    bestMonths: [
+      "June",
+      "July",
+      "August",
+      "September",
+      "December"
+    ],
+
+    budgets: {
+      budget: "₹10k–18k",
+      mid: "₹28k–50k",
+      luxury: "₹90k+"
+    },
+
+    estimatedDaily:
+      "₹5k–10k/day depending on estate stays.",
+
+    image:
+      "https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?q=80&w=1400"
+  },
+
+  {
+    id: "gokarna-murudeshwar",
+
+    title: "Beach Trails + Cliff Roads",
+
+    duration: "3–4 Days",
+
+    locations: [
+      "Gokarna",
+      "Murudeshwar"
+    ],
+
+    routeType: "coastal-route",
+
+    identity:
+      "Beach hikes, cliff roads, hidden coves, seafood cafes, and slower coastal pacing.",
+
+    dontMiss:
+      "Hidden Half Moon beach trail before noon heat.",
+
+    hiddenGem:
+      "Sunset cafe roads between Gokarna and Honnavar.",
+
+    bestFor: [
+      "Friends",
+      "Beach escapes",
+      "Slow travel"
+    ],
+
+    vibeTags: [
+      "beaches",
+      "coastal",
+      "sunsets",
+      "roadtrip"
+    ],
+
+    bestMonths: [
+      "October",
+      "November",
+      "December",
+      "January"
+    ],
+
+    budgets: {
+      budget: "₹12k–22k",
+      mid: "₹35k–55k",
+      luxury: "₹80k+"
+    },
+
+    estimatedDaily:
+      "₹4k–8k/day with scooters and mid-range stays.",
+
+    image:
+      "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1400"
+  },
+
+  {
+    id: "kochi-munnar-alleppey",
+
+    title: "Tea Hills + Backwater Mornings",
+
+    duration: "5–6 Days",
+
+    locations: [
+      "Kochi",
+      "Munnar",
+      "Alleppey"
+    ],
+
+    routeType: "india-circuit",
+
+    identity:
+      "Tea-estate roads, houseboats, spice cafes, rain drives, and slower scenic travel.",
+
+    dontMiss:
+      "Munnar sunrise roads before tourist traffic starts.",
+
+    hiddenGem:
+      "Smaller backwater canals near Alleppey instead of the crowded main routes.",
+
+    bestFor: [
+      "Couples",
+      "First Kerala trips",
+      "Slow travel"
+    ],
+
+    vibeTags: [
+      "backwaters",
+      "tea-estates",
+      "rain",
+      "nature"
+    ],
+
+    bestMonths: [
+      "June",
+      "July",
+      "August",
+      "September",
+      "December",
+      "January"
+    ],
+
+    budgets: {
+      budget: "₹20k–35k",
+      mid: "₹55k–90k",
+      luxury: "₹1.5L+"
+    },
+
+    estimatedDaily:
+      "₹5k–12k/day depending on houseboat category.",
+
+    image:
+      "https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?q=80&w=1400"
+  },
+
+  {
+    id: "leh-nubra-pangong",
+
+    title: "High Altitude + Unreal Roads",
+
+    duration: "8–10 Days",
+
+    locations: [
+      "Leh",
+      "Nubra Valley",
+      "Pangong Lake"
+    ],
+
+    routeType: "mountain-expedition",
+
+    identity:
+      "Monasteries, unreal landscapes, high-altitude roads, cold deserts, and bucket-list mountain travel.",
+
+    dontMiss:
+      "Pangong sunrise when the lake changes colour every few minutes.",
+
+    hiddenGem:
+      "Turtuk village detour near Nubra.",
+
+    bestFor: [
+      "Adventure",
+      "Road trips",
+      "Friends"
+    ],
+
+    vibeTags: [
+      "mountains",
+      "roadtrip",
+      "adventure",
+      "landscapes"
+    ],
+
+    bestMonths: [
+      "June",
+      "July",
+      "August",
+      "September"
+    ],
+
+    budgets: {
+      budget: "₹35k–60k",
+      mid: "₹90k–1.5L",
+      luxury: "₹2.5L+"
+    },
+
+    estimatedDaily:
+      "₹7k–15k/day depending on transport and acclimatization pacing.",
+
+    image:
+      "https://images.unsplash.com/photo-1581793745862-99fde7fa73d2?q=80&w=1400"
+  },
+
+  // =====================================================
+  // INTERNATIONAL
+  // =====================================================
+
+  {
+    id: "singapore-sentosa",
+
+    title: "Skyline Nights + Island Recovery",
+
+    duration: "4–5 Days",
+
+    locations: [
+      "Singapore City",
+      "Sentosa"
+    ],
+
+    routeType: "city-luxury",
+
+    identity:
+      "Skyline hotels, rooftop bars, hawker food runs, luxury malls, and cleaner city pacing.",
+
+    dontMiss:
+      "Marina Bay skyline after rainfall.",
+
+    hiddenGem:
+      "Maxwell Food Centre late evenings after office crowds leave.",
+
+    bestFor: [
+      "Luxury trips",
+      "Couples",
+      "First international trip"
+    ],
+
+    vibeTags: [
+      "luxury",
+      "city",
+      "food",
+      "nightlife"
+    ],
+
+    bestMonths: [
+      "January",
+      "February",
+      "March",
+      "July"
+    ],
+
+    budgets: {
+      budget: "₹65k–95k",
+      mid: "₹1.5L–2.5L",
+      luxury: "₹4L+"
+    },
+
+    estimatedDaily:
+      "₹12k–25k/day including hotels and attractions.",
+
+    image:
+      "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?q=80&w=1400"
+  },
+
+  {
+    id: "dubai-abu-dhabi",
+
+    title: "Desert Roads + Skyline Hotels",
+
+    duration: "5–6 Days",
+
+    locations: [
+      "Dubai",
+      "Abu Dhabi"
+    ],
+
+    routeType: "luxury-city",
+
+    identity:
+      "Skyline dinners, beach clubs, desert roads, luxury hotels, and cleaner high-end travel pacing.",
+
+    dontMiss:
+      "Late-night Sheikh Zayed Road drives.",
+
+    hiddenGem:
+      "Sunrise cafes around Al Seef before the city wakes up.",
+
+    bestFor: [
+      "Luxury",
+      "Friends",
+      "Shopping"
+    ],
+
+    vibeTags: [
+      "luxury",
+      "skyline",
+      "shopping",
+      "desert"
+    ],
+
+    bestMonths: [
+      "November",
+      "December",
+      "January",
+      "February"
+    ],
+
+    budgets: {
+      budget: "₹75k–1.2L",
+      mid: "₹2L–3.5L",
+      luxury: "₹5L+"
+    },
+
+    estimatedDaily:
+      "₹15k–30k/day depending on hotel category.",
+
+    image:
+      "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?q=80&w=1400"
+  },
+
+  {
+    id: "bali-complete",
+
+    title: "Villas + Island Mornings",
+
+    duration: "7–9 Days",
+
+    locations: [
+      "Ubud",
+      "Seminyak",
+      "Nusa Penida"
+    ],
+
+    routeType: "island-circuit",
+
+    identity:
+      "Villas, waterfalls, beach clubs, scooter mornings, jungle cafes, and slower tropical pacing.",
+
+    dontMiss:
+      "Nusa Penida cliff viewpoints before tour crowds arrive.",
+
+    hiddenGem:
+      "Sidemen village detour between Ubud and the islands.",
+
+    bestFor: [
+      "Couples",
+      "Friends",
+      "Long vacations"
+    ],
+
+    vibeTags: [
+      "villas",
+      "beaches",
+      "cafes",
+      "waterfalls"
+    ],
+
+    bestMonths: [
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September"
+    ],
+
     budgets: {
       budget: "₹60k–90k",
       mid: "₹1.5L–2.5L",
       luxury: "₹4L+"
     },
-    trending: true
+
+    estimatedDaily:
+      "₹10k–22k/day depending on villas and island transfers.",
+
+    image:
+      "https://images.unsplash.com/photo-1537996194471-e657df975ab4?q=80&w=1400"
   },
 
-  himachal: {
-    bestMonths: ["March","April","May","June","September","October"],
+  {
+    id: "japan-golden-route",
+
+    title: "Neon Streets + Quiet Temples",
+
+    duration: "9–11 Days",
+
+    locations: [
+      "Tokyo",
+      "Kyoto",
+      "Osaka"
+    ],
+
+    routeType: "city-circuit",
+
+    identity:
+      "Train routes, arcades, ramen alleys, shopping streets, quieter temples, and cinematic everyday moments.",
+
+    dontMiss:
+      "Golden Gai after midnight.",
+
+    hiddenGem:
+      "Kiyomizu-dera before 8 AM when Kyoto still feels empty.",
+
+    bestFor: [
+      "Food trips",
+      "Friends",
+      "First Japan trips"
+    ],
+
+    vibeTags: [
+      "city",
+      "food",
+      "shopping",
+      "culture"
+    ],
+
+    bestMonths: [
+      "March",
+      "April",
+      "October",
+      "November"
+    ],
+
     budgets: {
-      budget: "₹15k–30k",
-      mid: "₹45k–80k",
-      luxury: "₹1.5L+"
+      budget: "₹1.2L–2L",
+      mid: "₹3L–5L",
+      luxury: "₹7L+"
     },
-    trending: true
+
+    estimatedDaily:
+      "₹18k–35k/day including trains and hotels.",
+
+    image:
+      "https://images.unsplash.com/photo-1492571350019-22de08371fd3?q=80&w=1400"
   },
 
-  goa: {
-    bestMonths: ["November","December","January","February"],
-    budgets: {
-      budget: "₹12k–25k",
-      mid: "₹40k–75k",
-      luxury: "₹1.2L+"
-    },
-    trending: true
+  // =====================================================
+// INDIA — CONTINUED
+// PHASE 1B
+// =====================================================
+
+{
+  id: "udaipur-kumbhalgarh",
+
+  title: "Lake Palaces + Fort Roads",
+
+  duration: "3–4 Days",
+
+  locations: [
+    "Udaipur",
+    "Kumbhalgarh"
+  ],
+
+  routeType: "heritage-luxury",
+
+  identity:
+    "Lakefront dinners, palace hotels, quieter fort roads, rooftop cafes, and slower Rajasthan pacing.",
+
+  dontMiss:
+    "Sunset boat rides before the lakefront gets crowded.",
+
+  hiddenGem:
+    "Early-morning roads near Kumbhalgarh fort after rainfall.",
+
+  bestFor: [
+    "Couples",
+    "Luxury weekends",
+    "Girls trips"
+  ],
+
+  vibeTags: [
+    "heritage",
+    "luxury",
+    "sunsets",
+    "architecture"
+  ],
+
+  bestMonths: [
+    "October",
+    "November",
+    "December",
+    "January",
+    "February"
+  ],
+
+  budgets: {
+    budget: "₹15k–28k",
+    mid: "₹45k–80k",
+    luxury: "₹1.5L+"
   },
 
-  japan: {
-    bestMonths: ["March","April","October","November"],
-    budgets: {
-      budget: "₹1L–1.8L",
-      mid: "₹2.5L–4L",
-      luxury: "₹6L+"
-    },
-    trending: true
-  }
-};
+  estimatedDaily:
+    "₹5k–14k/day depending on palace stays.",
+
+  image:
+    "https://images.unsplash.com/photo-1599661046289-e31897846e41?q=80&w=1400"
+},
+
+{
+  id: "wayanad-kabini",
+
+  title: "Rainforest Roads + Riverside Stays",
+
+  duration: "4–5 Days",
+
+  locations: [
+    "Wayanad",
+    "Kabini"
+  ],
+
+  routeType: "nature-retreat",
+
+  identity:
+    "Jungle stays, rain-heavy drives, wildlife mornings, hidden cafes, and slower scenic travel.",
+
+  dontMiss:
+    "Kabini sunrise safaris before the forest heats up.",
+
+  hiddenGem:
+    "Bamboo forest roads after monsoon rainfall.",
+
+  bestFor: [
+    "Couples",
+    "Nature lovers",
+    "Road trips"
+  ],
+
+  vibeTags: [
+    "rainforest",
+    "wildlife",
+    "nature",
+    "monsoon"
+  ],
+
+  bestMonths: [
+    "June",
+    "July",
+    "August",
+    "September",
+    "December"
+  ],
+
+  budgets: {
+    budget: "₹18k–32k",
+    mid: "₹50k–90k",
+    luxury: "₹1.8L+"
+  },
+
+  estimatedDaily:
+    "₹6k–15k/day depending on safari lodges.",
+
+  image:
+    "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1400"
+},
+
+{
+  id: "mysore-coorg",
+
+  title: "Palaces + Coffee Hills",
+
+  duration: "4–5 Days",
+
+  locations: [
+    "Mysore",
+    "Coorg"
+  ],
+
+  routeType: "scenic-circuit",
+
+  identity:
+    "Palaces, coffee estates, rain roads, boutique stays, and slower Karnataka pacing.",
+
+  dontMiss:
+    "Mysore Palace lighting evenings before the crowd peaks.",
+
+  hiddenGem:
+    "Private estate cafes hidden around Madikeri roads.",
+
+  bestFor: [
+    "Road trips",
+    "Families",
+    "Couples"
+  ],
+
+  vibeTags: [
+    "coffee",
+    "heritage",
+    "rain",
+    "slow-travel"
+  ],
+
+  bestMonths: [
+    "June",
+    "July",
+    "August",
+    "September",
+    "December"
+  ],
+
+  budgets: {
+    budget: "₹15k–28k",
+    mid: "₹40k–75k",
+    luxury: "₹1.2L+"
+  },
+
+  estimatedDaily:
+    "₹5k–12k/day including transport and estate stays.",
+
+  image:
+    "https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?q=80&w=1400"
+},
+
+{
+  id: "varanasi-prayagraj-ayodhya",
+
+  title: "Ghats + Temple Corridors",
+
+  duration: "5–6 Days",
+
+  locations: [
+    "Varanasi",
+    "Prayagraj",
+    "Ayodhya"
+  ],
+
+  routeType: "spiritual-circuit",
+
+  identity:
+    "Riverfront rituals, temple corridors, chaotic streets, slower mornings, and deeply atmospheric travel.",
+
+  dontMiss:
+    "Assi Ghat sunrise before the crowds fully arrive.",
+
+  hiddenGem:
+    "Narrow chai lanes around old Varanasi after midnight.",
+
+  bestFor: [
+    "Cultural travel",
+    "Families",
+    "Slow exploration"
+  ],
+
+  vibeTags: [
+    "spiritual",
+    "heritage",
+    "riverfront",
+    "culture"
+  ],
+
+  bestMonths: [
+    "October",
+    "November",
+    "December",
+    "January",
+    "February"
+  ],
+
+  budgets: {
+    budget: "₹18k–30k",
+    mid: "₹45k–75k",
+    luxury: "₹1.2L+"
+  },
+
+  estimatedDaily:
+    "₹4k–10k/day depending on hotel category.",
+
+  image:
+    "https://images.unsplash.com/photo-1561361513-2d000a50f0dc?q=80&w=1400"
+},
+
+{
+  id: "golden-triangle",
+
+  title: "Palaces + Rooftops + Mughal Roads",
+
+  duration: "5–6 Days",
+
+  locations: [
+    "Delhi",
+    "Agra",
+    "Jaipur"
+  ],
+
+  routeType: "classic-india",
+
+  identity:
+    "Historic forts, rooftop dinners, chaotic bazaars, palace hotels, and India’s most iconic first-time circuit.",
+
+  dontMiss:
+    "Taj Mahal sunrise entry before the main rush begins.",
+
+  hiddenGem:
+    "Old Delhi breakfast lanes before traffic takes over.",
+
+  bestFor: [
+    "First India trips",
+    "Families",
+    "Luxury travel"
+  ],
+
+  vibeTags: [
+    "heritage",
+    "architecture",
+    "markets",
+    "food"
+  ],
+
+  bestMonths: [
+    "October",
+    "November",
+    "December",
+    "January",
+    "February"
+  ],
+
+  budgets: {
+    budget: "₹22k–40k",
+    mid: "₹60k–1L",
+    luxury: "₹2L+"
+  },
+
+  estimatedDaily:
+    "₹6k–16k/day depending on palace stays and transfers.",
+
+  image:
+    "https://images.unsplash.com/photo-1477587458883-47145ed94245?q=80&w=1400"
+},
+
+{
+  id: "rishikesh-mussoorie-kanatal",
+
+  title: "River Cafes + Mountain Roads",
+
+  duration: "5–6 Days",
+
+  locations: [
+    "Rishikesh",
+    "Mussoorie",
+    "Kanatal"
+  ],
+
+  routeType: "mountain-retreat",
+
+  identity:
+    "River cafes, mountain roads, slower hill-town mornings, hidden stays, and quieter Uttarakhand pacing.",
+
+  dontMiss:
+    "Rishikesh riverside cafes before rafting crowds arrive.",
+
+  hiddenGem:
+    "Forest roads around Kanatal during foggy mornings.",
+
+  bestFor: [
+    "Burnout escapes",
+    "Couples",
+    "Road trips"
+  ],
+
+  vibeTags: [
+    "mountains",
+    "riverfront",
+    "cafes",
+    "slow-travel"
+  ],
+
+  bestMonths: [
+    "March",
+    "April",
+    "May",
+    "September",
+    "October"
+  ],
+
+  budgets: {
+    budget: "₹18k–32k",
+    mid: "₹50k–85k",
+    luxury: "₹1.5L+"
+  },
+
+  estimatedDaily:
+    "₹5k–12k/day with scenic stays and transfers.",
+
+  image:
+    "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1400"
+},
+
+{
+  id: "madurai-rameshwaram-kanyakumari",
+
+  title: "Temple Roads + Southern Coastlines",
+
+  duration: "5–6 Days",
+
+  locations: [
+    "Madurai",
+    "Rameshwaram",
+    "Kanyakumari"
+  ],
+
+  routeType: "south-india-circuit",
+
+  identity:
+    "Temple corridors, coastal roads, sunrise viewpoints, seafood stops, and slower Tamil Nadu pacing.",
+
+  dontMiss:
+    "Pamban Bridge crossings during sunrise hours.",
+
+  hiddenGem:
+    "Quiet beach stretches outside Kanyakumari town.",
+
+  bestFor: [
+    "Road trips",
+    "Families",
+    "Cultural travel"
+  ],
+
+  vibeTags: [
+    "coastal",
+    "heritage",
+    "roadtrip",
+    "sunrise"
+  ],
+
+  bestMonths: [
+    "November",
+    "December",
+    "January",
+    "February"
+  ],
+
+  budgets: {
+    budget: "₹20k–35k",
+    mid: "₹55k–90k",
+    luxury: "₹1.5L+"
+  },
+
+  estimatedDaily:
+    "₹5k–12k/day depending on transport pacing.",
+
+  image:
+    "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1400"
+},
+
+{
+  id: "meghalaya-complete",
+
+  title: "Cloud Roads + Waterfall Valleys",
+
+  duration: "6–7 Days",
+
+  locations: [
+    "Shillong",
+    "Cherrapunji",
+    "Dawki"
+  ],
+
+  routeType: "northeast-circuit",
+
+  identity:
+    "Cloud forests, waterfalls, root bridges, rain drives, and some of India’s prettiest road journeys.",
+
+  dontMiss:
+    "Dawki river mornings before tourist boats arrive.",
+
+  hiddenGem:
+    "Laitlum Canyon sunrise before visibility disappears into clouds.",
+
+  bestFor: [
+    "Road trips",
+    "Nature lovers",
+    "Friends"
+  ],
+
+  vibeTags: [
+    "waterfalls",
+    "rain",
+    "mountains",
+    "nature"
+  ],
+
+  bestMonths: [
+    "June",
+    "July",
+    "August",
+    "September",
+    "October"
+  ],
+
+  budgets: {
+    budget: "₹25k–40k",
+    mid: "₹65k–1L",
+    luxury: "₹1.8L+"
+  },
+
+  estimatedDaily:
+    "₹6k–14k/day depending on transfers and stays.",
+
+  image:
+    "https://images.unsplash.com/photo-1528127269322-539801943592?q=80&w=1400"
+},
+
+{
+  id: "kashmir-complete",
+
+  title: "Valleys + Pine Roads",
+
+  duration: "6–7 Days",
+
+  locations: [
+    "Srinagar",
+    "Gulmarg",
+    "Pahalgam"
+  ],
+
+  routeType: "mountain-luxury",
+
+  identity:
+    "Lakeside mornings, pine valleys, snow roads, houseboats, and cinematic Himalayan pacing.",
+
+  dontMiss:
+    "Dal Lake sunrise shikara rides before the lake gets crowded.",
+
+  hiddenGem:
+    "Hidden valleys near Aru after fresh snowfall.",
+
+  bestFor: [
+    "Couples",
+    "Families",
+    "Luxury mountain trips"
+  ],
+
+  vibeTags: [
+    "snow",
+    "mountains",
+    "lakes",
+    "luxury"
+  ],
+
+  bestMonths: [
+    "April",
+    "May",
+    "June",
+    "October",
+    "December"
+  ],
+
+  budgets: {
+    budget: "₹30k–50k",
+    mid: "₹80k–1.5L",
+    luxury: "₹2.5L+"
+  },
+
+  estimatedDaily:
+    "₹7k–18k/day depending on season and stays.",
+
+  image:
+    "https://images.unsplash.com/photo-1598091383021-15ddea10925d?q=80&w=1400"
+},
+
+  // =====================================================
+// INDIA — FINAL SET
+// PHASE 1C
+// =====================================================
+
+{
+  id: "gangtok-darjeeling-pelling",
+
+  title: "Tea Hills + Himalayan Roads",
+
+  duration: "7–8 Days",
+
+  locations: [
+    "Gangtok",
+    "Darjeeling",
+    "Pelling"
+  ],
+
+  routeType: "mountain-circuit",
+
+  identity:
+    "Tea gardens, monastery towns, mist-heavy roads, mountain cafes, and slower Himalayan pacing.",
+
+  dontMiss:
+    "Tiger Hill before sunrise when Kanchenjunga first becomes visible.",
+
+  hiddenGem:
+    "Smaller monastery roads outside Pelling during foggy mornings.",
+
+  bestFor: [
+    "Couples",
+    "Scenic travel",
+    "Mountain escapes"
+  ],
+
+  vibeTags: [
+    "mountains",
+    "tea-estates",
+    "mist",
+    "slow-travel"
+  ],
+
+  bestMonths: [
+    "March",
+    "April",
+    "May",
+    "October",
+    "November"
+  ],
+
+  budgets: {
+    budget: "₹28k–45k",
+    mid: "₹75k–1.2L",
+    luxury: "₹2L+"
+  },
+
+  estimatedDaily:
+    "₹6k–15k/day depending on hotel category and transfers.",
+
+  image:
+    "https://images.unsplash.com/photo-1544735716-392fe2489ffa?q=80&w=1400"
+},
+
+{
+  id: "andaman-complete",
+
+  title: "Island Ferries + Turquoise Water",
+
+  duration: "7–8 Days",
+
+  locations: [
+    "Port Blair",
+    "Havelock",
+    "Neil Island"
+  ],
+
+  routeType: "island-circuit",
+
+  identity:
+    "Scuba mornings, ferries, beach cycling, slower island pacing, and unreal water everywhere.",
+
+  dontMiss:
+    "Radhanagar Beach before the tour buses arrive.",
+
+  hiddenGem:
+    "Early-morning scooter roads around Neil Island.",
+
+  bestFor: [
+    "Couples",
+    "Beach lovers",
+    "Long vacations"
+  ],
+
+  vibeTags: [
+    "islands",
+    "beaches",
+    "water",
+    "slow-travel"
+  ],
+
+  bestMonths: [
+    "November",
+    "December",
+    "January",
+    "February",
+    "March"
+  ],
+
+  budgets: {
+    budget: "₹35k–55k",
+    mid: "₹90k–1.5L",
+    luxury: "₹2.5L+"
+  },
+
+  estimatedDaily:
+    "₹7k–18k/day depending on ferry and resort choices.",
+
+  image:
+    "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1400"
+},
+
+{
+  id: "rajasthan-desert-loop",
+
+  title: "Desert Forts + Blue City Nights",
+
+  duration: "8–10 Days",
+
+  locations: [
+    "Jodhpur",
+    "Jaisalmer",
+    "Bikaner"
+  ],
+
+  routeType: "heritage-circuit",
+
+  identity:
+    "Blue-city rooftops, desert camps, fort roads, old markets, and cinematic Rajasthan evenings.",
+
+  dontMiss:
+    "Jaisalmer desert camps after midnight when the dunes go silent.",
+
+  hiddenGem:
+    "Smaller rooftop cafes hidden inside Jodhpur old city.",
+
+  bestFor: [
+    "Friends",
+    "Luxury trips",
+    "Photographers"
+  ],
+
+  vibeTags: [
+    "desert",
+    "heritage",
+    "architecture",
+    "sunsets"
+  ],
+
+  bestMonths: [
+    "October",
+    "November",
+    "December",
+    "January",
+    "February"
+  ],
+
+  budgets: {
+    budget: "₹30k–50k",
+    mid: "₹80k–1.5L",
+    luxury: "₹3L+"
+  },
+
+  estimatedDaily:
+    "₹7k–18k/day depending on palace stays and desert camps.",
+
+  image:
+    "https://images.unsplash.com/photo-1477587458883-47145ed94245?q=80&w=1400"
+},
+
+{
+  id: "northeast-grand-route",
+
+  title: "Tea Valleys + Monastery Roads",
+
+  duration: "10–12 Days",
+
+  locations: [
+    "Kaziranga",
+    "Majuli",
+    "Tawang"
+  ],
+
+  routeType: "expedition-route",
+
+  identity:
+    "Tea valleys, monastery towns, river islands, mountain roads, and some of India’s most underrated landscapes.",
+
+  dontMiss:
+    "Tawang monastery mornings before tourist traffic arrives.",
+
+  hiddenGem:
+    "Sunrise ferry rides near Majuli island villages.",
+
+  bestFor: [
+    "Road trips",
+    "Adventure",
+    "Slow exploration"
+  ],
+
+  vibeTags: [
+    "mountains",
+    "wildlife",
+    "roadtrip",
+    "culture"
+  ],
+
+  bestMonths: [
+    "March",
+    "April",
+    "October",
+    "November"
+  ],
+
+  budgets: {
+    budget: "₹45k–70k",
+    mid: "₹1.2L–2L",
+    luxury: "₹3.5L+"
+  },
+
+  estimatedDaily:
+    "₹8k–18k/day due to longer transfers and remote stays.",
+
+  image:
+    "https://images.unsplash.com/photo-1528127269322-539801943592?q=80&w=1400"
+},
+
+// =====================================================
+// INTERNATIONAL — CONTINUED
+// =====================================================
+
+{
+  id: "azerbaijan-complete",
+
+  title: "Old City Streets + Mountain Roads",
+
+  duration: "5–6 Days",
+
+  locations: [
+    "Baku",
+    "Gabala",
+    "Sheki"
+  ],
+
+  routeType: "scenic-circuit",
+
+  identity:
+    "Old-city cafes, mountain roads, modern skyline nights, and underrated Caucasus landscapes.",
+
+  dontMiss:
+    "Baku old city walks after midnight.",
+
+  hiddenGem:
+    "Tea-house stops on the road to Sheki.",
+
+  bestFor: [
+    "Friends",
+    "Budget luxury",
+    "First international trips"
+  ],
+
+  vibeTags: [
+    "city",
+    "mountains",
+    "cafes",
+    "roadtrip"
+  ],
+
+  bestMonths: [
+    "April",
+    "May",
+    "September",
+    "October"
+  ],
+
+  budgets: {
+    budget: "₹55k–80k",
+    mid: "₹1.2L–2L",
+    luxury: "₹3L+"
+  },
+
+  estimatedDaily:
+    "₹10k–22k/day depending on hotels and transport.",
+
+  image:
+    "https://images.unsplash.com/photo-1516483638261-f4dbaf036963?q=80&w=1400"
+},
+
+{
+  id: "kazakhstan-almaty",
+
+  title: "Snow Roads + Alpine Lakes",
+
+  duration: "4–5 Days",
+
+  locations: [
+    "Almaty",
+    "Shymbulak",
+    "Big Almaty Lake"
+  ],
+
+  routeType: "mountain-retreat",
+
+  identity:
+    "Snow roads, alpine lakes, mountain cafes, cable cars, and quieter winter-city pacing.",
+
+  dontMiss:
+    "Shymbulak cable cars before noon visibility disappears.",
+
+  hiddenGem:
+    "Hidden coffee spots around Panfilov street.",
+
+  bestFor: [
+    "Winter trips",
+    "Couples",
+    "Friends"
+  ],
+
+  vibeTags: [
+    "snow",
+    "mountains",
+    "winter",
+    "cafes"
+  ],
+
+  bestMonths: [
+    "December",
+    "January",
+    "February"
+  ],
+
+  budgets: {
+    budget: "₹60k–90k",
+    mid: "₹1.5L–2.5L",
+    luxury: "₹4L+"
+  },
+
+  estimatedDaily:
+    "₹12k–25k/day depending on winter activities.",
+
+  image:
+    "https://images.unsplash.com/photo-1516483638261-f4dbaf036963?q=80&w=1400"
+},
+
+{
+  id: "bangkok-pattaya",
+
+  title: "Night Markets + Beach Recovery",
+
+  duration: "4–5 Days",
+
+  locations: [
+    "Bangkok",
+    "Pattaya"
+  ],
+
+  routeType: "city-beach",
+
+  identity:
+    "Late-night food runs, rooftop bars, beach recovery days, shopping streets, and chaotic city energy.",
+
+  dontMiss:
+    "Bangkok food markets after midnight.",
+
+  hiddenGem:
+    "Smaller cocktail bars hidden near Chinatown.",
+
+  bestFor: [
+    "Friends",
+    "Nightlife",
+    "First Thailand trips"
+  ],
+
+  vibeTags: [
+    "nightlife",
+    "food",
+    "shopping",
+    "beaches"
+  ],
+
+  bestMonths: [
+    "November",
+    "December",
+    "January",
+    "February"
+  ],
+
+  budgets: {
+    budget: "₹50k–75k",
+    mid: "₹1.2L–2L",
+    luxury: "₹3L+"
+  },
+
+  estimatedDaily:
+    "₹10k–20k/day including nightlife and shopping.",
+
+  image:
+    "https://images.unsplash.com/photo-1508009603885-50cf7c579365?q=80&w=1400"
+},
+
+{
+  id: "phuket-krabi-phi-phi",
+
+  title: "Island Ferries + Limestone Cliffs",
+
+  duration: "6–7 Days",
+
+  locations: [
+    "Phuket",
+    "Krabi",
+    "Phi Phi Islands"
+  ],
+
+  routeType: "island-hopping",
+
+  identity:
+    "Longtail boats, island ferries, beach clubs, limestone cliffs, and slower tropical pacing.",
+
+  dontMiss:
+    "Phi Phi sunrise boat rides before the islands become crowded.",
+
+  hiddenGem:
+    "Smaller cafes hidden near Railay Beach walking streets.",
+
+  bestFor: [
+    "Couples",
+    "Beach vacations",
+    "Friends"
+  ],
+
+  vibeTags: [
+    "islands",
+    "beaches",
+    "boats",
+    "sunsets"
+  ],
+
+  bestMonths: [
+    "November",
+    "December",
+    "January",
+    "February"
+  ],
+
+  budgets: {
+    budget: "₹65k–95k",
+    mid: "₹1.5L–2.5L",
+    luxury: "₹4L+"
+  },
+
+  estimatedDaily:
+    "₹12k–24k/day depending on island stays and ferries.",
+
+  image:
+    "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1400"
+},
+
+{
+  id: "vietnam-north",
+
+  title: "Lantern Nights + Limestone Bays",
+
+  duration: "5–6 Days",
+
+  locations: [
+    "Hanoi",
+    "Ha Long Bay",
+    "Ninh Binh"
+  ],
+
+  routeType: "scenic-circuit",
+
+  identity:
+    "Street food, limestone bays, lantern cafes, quieter countryside roads, and realistic Vietnam pacing.",
+
+  dontMiss:
+    "Hanoi train street during quieter evening hours.",
+
+  hiddenGem:
+    "Tam Coc boat rides before tour groups arrive.",
+
+  bestFor: [
+    "Food trips",
+    "Couples",
+    "First Vietnam trips"
+  ],
+
+  vibeTags: [
+    "food",
+    "cafes",
+    "nature",
+    "boats"
+  ],
+
+  bestMonths: [
+    "February",
+    "March",
+    "April",
+    "October"
+  ],
+
+  budgets: {
+    budget: "₹55k–85k",
+    mid: "₹1.3L–2.2L",
+    luxury: "₹3.5L+"
+  },
+
+  estimatedDaily:
+    "₹10k–22k/day depending on cruises and hotels.",
+
+  image:
+    "https://images.unsplash.com/photo-1504457047772-27faf1c00561?q=80&w=1400"
+},
+  // =====================================================
+// INTERNATIONAL — FINAL SET
+// PHASE 1D
+// =====================================================
+
+{
+  id: "vietnam-central",
+
+  title: "Lantern Towns + Coastal Cafes",
+
+  duration: "4–5 Days",
+
+  locations: [
+    "Da Nang",
+    "Hoi An",
+    "Ba Na Hills"
+  ],
+
+  routeType: "coastal-circuit",
+
+  identity:
+    "Lantern streets, beach cafes, scenic coastal roads, and slower central Vietnam pacing.",
+
+  dontMiss:
+    "Hoi An lantern streets after rainfall when the reflections take over the entire town.",
+
+  hiddenGem:
+    "Hidden beachfront cafes outside Da Nang city center.",
+
+  bestFor: [
+    "Couples",
+    "Friends",
+    "Slow travel"
+  ],
+
+  vibeTags: [
+    "cafes",
+    "beaches",
+    "coastal",
+    "lanterns"
+  ],
+
+  bestMonths: [
+    "February",
+    "March",
+    "April",
+    "May"
+  ],
+
+  budgets: {
+    budget: "₹50k–80k",
+    mid: "₹1.2L–2L",
+    luxury: "₹3.5L+"
+  },
+
+  estimatedDaily:
+    "₹10k–20k/day depending on beach stays and transfers.",
+
+  image:
+    "https://images.unsplash.com/photo-1528127269322-539801943592?q=80&w=1400"
+},
+
+{
+  id: "vietnam-south",
+
+  title: "Scooter Cities + Island Recovery",
+
+  duration: "6–7 Days",
+
+  locations: [
+    "Ho Chi Minh City",
+    "Mekong Delta",
+    "Phu Quoc"
+  ],
+
+  routeType: "city-island",
+
+  identity:
+    "Scooter-heavy streets, floating markets, beach resorts, rooftop bars, and tropical island pacing.",
+
+  dontMiss:
+    "Phu Quoc sunset beach bars before peak crowds arrive.",
+
+  hiddenGem:
+    "Smaller Mekong canals outside the tourist boat routes.",
+
+  bestFor: [
+    "Friends",
+    "Beach trips",
+    "Food lovers"
+  ],
+
+  vibeTags: [
+    "islands",
+    "food",
+    "nightlife",
+    "boats"
+  ],
+
+  bestMonths: [
+    "December",
+    "January",
+    "February",
+    "March"
+  ],
+
+  budgets: {
+    budget: "₹60k–90k",
+    mid: "₹1.5L–2.5L",
+    luxury: "₹4L+"
+  },
+
+  estimatedDaily:
+    "₹10k–22k/day depending on island stays and nightlife.",
+
+  image:
+    "https://images.unsplash.com/photo-1504457047772-27faf1c00561?q=80&w=1400"
+},
+
+{
+  id: "sri-lanka-complete",
+
+  title: "Train Windows + Tea Hills",
+
+  duration: "7–8 Days",
+
+  locations: [
+    "Colombo",
+    "Kandy",
+    "Nuwara Eliya",
+    "Bentota"
+  ],
+
+  routeType: "scenic-circuit",
+
+  identity:
+    "Tea-country trains, surf towns, colonial cafes, scenic roads, and slower island pacing.",
+
+  dontMiss:
+    "Ella train rides during early morning hours.",
+
+  hiddenGem:
+    "Smaller tea-estate cafes near Nuwara Eliya.",
+
+  bestFor: [
+    "Couples",
+    "Scenic travel",
+    "First Sri Lanka trips"
+  ],
+
+  vibeTags: [
+    "trains",
+    "tea-estates",
+    "beaches",
+    "cafes"
+  ],
+
+  bestMonths: [
+    "December",
+    "January",
+    "February",
+    "March"
+  ],
+
+  budgets: {
+    budget: "₹65k–95k",
+    mid: "₹1.5L–2.5L",
+    luxury: "₹4L+"
+  },
+
+  estimatedDaily:
+    "₹12k–24k/day depending on train class and beach resorts.",
+
+  image:
+    "https://images.unsplash.com/photo-1586861635167-e5223aadc9fe?q=80&w=1400"
+},
+
+{
+  id: "bhutan-complete",
+
+  title: "Monastery Roads + Quiet Valleys",
+
+  duration: "6–7 Days",
+
+  locations: [
+    "Thimphu",
+    "Punakha",
+    "Paro"
+  ],
+
+  routeType: "mountain-retreat",
+
+  identity:
+    "Monastery roads, slower mountain pacing, quieter valleys, river bridges, and cleaner Himalayan landscapes.",
+
+  dontMiss:
+    "Tiger’s Nest monastery before peak climbing hours.",
+
+  hiddenGem:
+    "Smaller riverside stays outside Punakha.",
+
+  bestFor: [
+    "Slow travel",
+    "Couples",
+    "Peaceful trips"
+  ],
+
+  vibeTags: [
+    "mountains",
+    "spiritual",
+    "nature",
+    "slow-travel"
+  ],
+
+  bestMonths: [
+    "March",
+    "April",
+    "October",
+    "November"
+  ],
+
+  budgets: {
+    budget: "₹70k–1L",
+    mid: "₹1.8L–3L",
+    luxury: "₹5L+"
+  },
+
+  estimatedDaily:
+    "₹12k–28k/day including permits and transfers.",
+
+  image:
+    "https://images.unsplash.com/photo-1521295121783-8a321d551ad2?q=80&w=1400"
+},
+
+{
+  id: "nepal-complete",
+
+  title: "Lakeside Cafes + Himalayan Views",
+
+  duration: "6–7 Days",
+
+  locations: [
+    "Kathmandu",
+    "Pokhara",
+    "Nagarkot"
+  ],
+
+  routeType: "mountain-circuit",
+
+  identity:
+    "Lakeside cafes, mountain sunrises, slower trekking towns, and chaotic-but-beautiful Himalayan travel.",
+
+  dontMiss:
+    "Pokhara sunrise before clouds block the Annapurna range.",
+
+  hiddenGem:
+    "Quiet rooftop cafes hidden inside Kathmandu lanes.",
+
+  bestFor: [
+    "Adventure",
+    "Budget trips",
+    "Mountain lovers"
+  ],
+
+  vibeTags: [
+    "mountains",
+    "cafes",
+    "sunrise",
+    "nature"
+  ],
+
+  bestMonths: [
+    "March",
+    "April",
+    "October",
+    "November"
+  ],
+
+  budgets: {
+    budget: "₹45k–70k",
+    mid: "₹1.2L–2L",
+    luxury: "₹3.5L+"
+  },
+
+  estimatedDaily:
+    "₹8k–18k/day depending on trekking and hotels.",
+
+  image:
+    "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1400"
+},
+
+{
+  id: "maldives-complete",
+
+  title: "Water Villas + Barefoot Mornings",
+
+  duration: "3–4 Days",
+
+  locations: [
+    "Private Island Resort"
+  ],
+
+  routeType: "luxury-island",
+
+  identity:
+    "Water villas, floating breakfasts, private beaches, slower mornings, and pure tropical luxury pacing.",
+
+  dontMiss:
+    "Early-morning lagoon walks before the sun becomes harsh.",
+
+  hiddenGem:
+    "Local island cafes outside luxury resort zones.",
+
+  bestFor: [
+    "Honeymoon",
+    "Luxury trips",
+    "Couples"
+  ],
+
+  vibeTags: [
+    "luxury",
+    "water-villas",
+    "beaches",
+    "islands"
+  ],
+
+  bestMonths: [
+    "November",
+    "December",
+    "January",
+    "February",
+    "March"
+  ],
+
+  budgets: {
+    budget: "₹1L–1.8L",
+    mid: "₹3L–5L",
+    luxury: "₹8L+"
+  },
+
+  estimatedDaily:
+    "₹20k–60k/day depending on resort category.",
+
+  image:
+    "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1400"
+},
+
+{
+  id: "south-korea-complete",
+
+  title: "Neon Nights + Coastal Recovery",
+
+  duration: "9–11 Days",
+
+  locations: [
+    "Seoul",
+    "Jeju Island",
+    "Busan"
+  ],
+
+  routeType: "city-coastal",
+
+  identity:
+    "Cafe streets, skincare shopping, nightlife, coastal drives, and cleaner Korea pacing.",
+
+  dontMiss:
+    "Seongsu cafe streets before crowds take over.",
+
+  hiddenGem:
+    "Smaller beach cafes hidden around Busan coastal roads.",
+
+  bestFor: [
+    "Friends",
+    "Shopping",
+    "First Korea trips"
+  ],
+
+  vibeTags: [
+    "cafes",
+    "shopping",
+    "city",
+    "beaches"
+  ],
+
+  bestMonths: [
+    "March",
+    "April",
+    "October",
+    "November"
+  ],
+
+  budgets: {
+    budget: "₹1.2L–2L",
+    mid: "₹3L–5L",
+    luxury: "₹7L+"
+  },
+
+  estimatedDaily:
+    "₹18k–35k/day including internal flights and shopping.",
+
+  image:
+    "https://images.unsplash.com/photo-1549692520-acc6669e2f0c?q=80&w=1400"
+},
+
+{
+  id: "turkey-complete",
+
+  title: "Mosques + Balloon Sunrises",
+
+  duration: "10–12 Days",
+
+  locations: [
+    "Istanbul",
+    "Cappadocia",
+    "Antalya"
+  ],
+
+  routeType: "historic-circuit",
+
+  identity:
+    "Mosques, bazaars, rooftop cafes, balloon mornings, beach towns, and cinematic landscapes.",
+
+  dontMiss:
+    "Cappadocia balloon sunrise viewpoints before the crowds arrive.",
+
+  hiddenGem:
+    "Rooftop tea cafes hidden around Istanbul old city.",
+
+  bestFor: [
+    "Couples",
+    "Scenic travel",
+    "Luxury on budget"
+  ],
+
+  vibeTags: [
+    "history",
+    "balloons",
+    "beaches",
+    "cafes"
+  ],
+
+  bestMonths: [
+    "April",
+    "May",
+    "September",
+    "October"
+  ],
+
+  budgets: {
+    budget: "₹1L–1.6L",
+    mid: "₹2.5L–4L",
+    luxury: "₹6L+"
+  },
+
+  estimatedDaily:
+    "₹15k–32k/day depending on internal flights and hotels.",
+
+  image:
+    "https://images.unsplash.com/photo-1527838832700-5059252407fa?q=80&w=1400"
+},
+
+  // =====================================================
+// EUROPE + AFRICA + OCEANIA
+// PHASE 1E
+// =====================================================
+
+{
+  id: "iceland-complete",
+
+  title: "Black Sand Roads + Northern Skies",
+
+  duration: "8–10 Days",
+
+  locations: [
+    "Reykjavik",
+    "Golden Circle",
+    "South Coast"
+  ],
+
+  routeType: "nature-expedition",
+
+  identity:
+    "Black sand beaches, waterfalls, glacier roads, geothermal lagoons, and unreal cinematic landscapes everywhere.",
+
+  dontMiss:
+    "South Coast drives during golden-hour light when the entire landscape turns surreal.",
+
+  hiddenGem:
+    "Smaller geothermal pools outside Blue Lagoon tourist zones.",
+
+  bestFor: [
+    "Road trips",
+    "Adventure",
+    "Photographers"
+  ],
+
+  vibeTags: [
+    "waterfalls",
+    "glaciers",
+    "roadtrip",
+    "nature"
+  ],
+
+  bestMonths: [
+    "September",
+    "October",
+    "November",
+    "February",
+    "March"
+  ],
+
+  budgets: {
+    budget: "₹2L–3L",
+    mid: "₹4L–6L",
+    luxury: "₹9L+"
+  },
+
+  estimatedDaily:
+    "₹30k–60k/day because Iceland is expensive everywhere.",
+
+  image:
+    "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1400"
+},
+
+{
+  id: "france-riviera",
+
+  title: "Cafe Streets + Riviera Mornings",
+
+  duration: "8–10 Days",
+
+  locations: [
+    "Paris",
+    "Nice",
+    "Monaco"
+  ],
+
+  routeType: "luxury-europe",
+
+  identity:
+    "Canal cafes, designer streets, Riviera mornings, late dinners, and cinematic European summer pacing.",
+
+  dontMiss:
+    "Paris sunrise walks before the city fully wakes up.",
+
+  hiddenGem:
+    "Èze village mornings before tourist buses arrive.",
+
+  bestFor: [
+    "Luxury",
+    "Couples",
+    "First Europe trips"
+  ],
+
+  vibeTags: [
+    "cafes",
+    "luxury",
+    "shopping",
+    "coastal"
+  ],
+
+  bestMonths: [
+    "April",
+    "May",
+    "June",
+    "September"
+  ],
+
+  budgets: {
+    budget: "₹1.8L–3L",
+    mid: "₹4.5L–7L",
+    luxury: "₹10L+"
+  },
+
+  estimatedDaily:
+    "₹25k–60k/day depending on hotels and train routes.",
+
+  image:
+    "https://images.unsplash.com/photo-1499856871958-5b9627545d1a?q=80&w=1400"
+},
+
+{
+  id: "switzerland-complete",
+
+  title: "Train Windows + Alpine Lakes",
+
+  duration: "9–11 Days",
+
+  locations: [
+    "Zurich",
+    "Lucerne",
+    "Interlaken",
+    "Zermatt"
+  ],
+
+  routeType: "mountain-luxury",
+
+  identity:
+    "Scenic trains, alpine lakes, mountain villages, cable cars, and cleaner slower travel pacing.",
+
+  dontMiss:
+    "Golden-hour train rides through the Swiss Alps.",
+
+  hiddenGem:
+    "Smaller lake towns outside Interlaken with fewer crowds.",
+
+  bestFor: [
+    "Scenic travel",
+    "Luxury",
+    "Honeymoon"
+  ],
+
+  vibeTags: [
+    "mountains",
+    "trains",
+    "lakes",
+    "luxury"
+  ],
+
+  bestMonths: [
+    "May",
+    "June",
+    "September",
+    "December"
+  ],
+
+  budgets: {
+    budget: "₹2L–3.5L",
+    mid: "₹5L–8L",
+    luxury: "₹12L+"
+  },
+
+  estimatedDaily:
+    "₹30k–70k/day depending on train passes and hotels.",
+
+  image:
+    "https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?q=80&w=1400"
+},
+
+{
+  id: "italy-complete",
+
+  title: "Late Dinners + Coastal Trains",
+
+  duration: "10–12 Days",
+
+  locations: [
+    "Rome",
+    "Florence",
+    "Venice",
+    "Amalfi Coast"
+  ],
+
+  routeType: "classic-europe",
+
+  identity:
+    "Pasta alleys, coastal trains, beach towns, old architecture, rooftop dinners, and slower Italian pacing.",
+
+  dontMiss:
+    "Amalfi ferry mornings before the coastline becomes crowded.",
+
+  hiddenGem:
+    "Atrani instead of Positano for quieter coastal mornings.",
+
+  bestFor: [
+    "Couples",
+    "Food trips",
+    "Summer Europe"
+  ],
+
+  vibeTags: [
+    "food",
+    "coastal",
+    "architecture",
+    "luxury"
+  ],
+
+  bestMonths: [
+    "April",
+    "May",
+    "June",
+    "September"
+  ],
+
+  budgets: {
+    budget: "₹2L–3.2L",
+    mid: "₹5L–8L",
+    luxury: "₹12L+"
+  },
+
+  estimatedDaily:
+    "₹28k–65k/day depending on hotels and train routes.",
+
+  image:
+    "https://images.unsplash.com/photo-1516483638261-f4dbaf036963?q=80&w=1400"
+},
+
+{
+  id: "greece-complete",
+
+  title: "Whitewashed Cliffs + Ferry Mornings",
+
+  duration: "8–10 Days",
+
+  locations: [
+    "Athens",
+    "Mykonos",
+    "Santorini"
+  ],
+
+  routeType: "island-luxury",
+
+  identity:
+    "Beach clubs, ferries, cliff hotels, late dinners, and postcard-level summer island travel.",
+
+  dontMiss:
+    "Santorini sunrise before the cruise crowds arrive.",
+
+  hiddenGem:
+    "Milos island detours for slower Greek island pacing.",
+
+  bestFor: [
+    "Luxury trips",
+    "Couples",
+    "Summer vacations"
+  ],
+
+  vibeTags: [
+    "islands",
+    "beaches",
+    "luxury",
+    "sunsets"
+  ],
+
+  bestMonths: [
+    "May",
+    "June",
+    "September"
+  ],
+
+  budgets: {
+    budget: "₹1.8L–3L",
+    mid: "₹5L–8L",
+    luxury: "₹12L+"
+  },
+
+  estimatedDaily:
+    "₹28k–65k/day depending on ferries and cliff hotels.",
+
+  image:
+    "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1400"
+},
+
+{
+  id: "egypt-complete",
+
+  title: "Desert Temples + Nile Nights",
+
+  duration: "9–11 Days",
+
+  locations: [
+    "Cairo",
+    "Luxor",
+    "Aswan",
+    "Nile Cruise"
+  ],
+
+  routeType: "historic-expedition",
+
+  identity:
+    "Ancient temples, desert roads, river cruises, chaotic bazaars, and cinematic historical landscapes.",
+
+  dontMiss:
+    "Pyramid sunrise timing before the desert heat becomes intense.",
+
+  hiddenGem:
+    "Smaller Nile-side cafes hidden around Aswan.",
+
+  bestFor: [
+    "History lovers",
+    "Adventure",
+    "Luxury on budget"
+  ],
+
+  vibeTags: [
+    "history",
+    "desert",
+    "cruise",
+    "architecture"
+  ],
+
+  bestMonths: [
+    "October",
+    "November",
+    "December",
+    "January",
+    "February"
+  ],
+
+  budgets: {
+    budget: "₹1.2L–2L",
+    mid: "₹3L–5L",
+    luxury: "₹7L+"
+  },
+
+  estimatedDaily:
+    "₹18k–40k/day depending on cruise category.",
+
+  image:
+    "https://images.unsplash.com/photo-1572252009286-268acec5ca0a?q=80&w=1400"
+},
+
+{
+  id: "kenya-complete",
+
+  title: "Safari Roads + Golden Grasslands",
+
+  duration: "6–8 Days",
+
+  locations: [
+    "Nairobi",
+    "Masai Mara",
+    "Lake Nakuru"
+  ],
+
+  routeType: "wildlife-expedition",
+
+  identity:
+    "Safari drives, golden grasslands, luxury camps, wildlife mornings, and cinematic African landscapes.",
+
+  dontMiss:
+    "Masai Mara sunrise safaris before the heat rises.",
+
+  hiddenGem:
+    "Smaller lakeside camps around Nakuru.",
+
+  bestFor: [
+    "Adventure",
+    "Wildlife",
+    "Luxury travel"
+  ],
+
+  vibeTags: [
+    "safari",
+    "wildlife",
+    "nature",
+    "luxury"
+  ],
+
+  bestMonths: [
+    "July",
+    "August",
+    "September"
+  ],
+
+  budgets: {
+    budget: "₹2L–3L",
+    mid: "₹4.5L–7L",
+    luxury: "₹12L+"
+  },
+
+  estimatedDaily:
+    "₹30k–70k/day depending on safari camp category.",
+
+  image:
+    "https://images.unsplash.com/photo-1516426122078-c23e76319801?q=80&w=1400"
+},
+
+{
+  id: "south-africa-complete",
+
+  title: "Coastal Drives + Safari Mornings",
+
+  duration: "11–13 Days",
+
+  locations: [
+    "Cape Town",
+    "Garden Route",
+    "Kruger Park"
+  ],
+
+  routeType: "roadtrip-expedition",
+
+  identity:
+    "Coastal highways, wine estates, safari mornings, dramatic cliffs, and some of the world’s best road-trip scenery.",
+
+  dontMiss:
+    "Chapman’s Peak Drive during sunset light.",
+
+  hiddenGem:
+    "Smaller wine farms outside Stellenbosch.",
+
+  bestFor: [
+    "Road trips",
+    "Adventure",
+    "Luxury"
+  ],
+
+  vibeTags: [
+    "roadtrip",
+    "wildlife",
+    "coastal",
+    "wine"
+  ],
+
+  bestMonths: [
+    "March",
+    "April",
+    "September",
+    "October"
+  ],
+
+  budgets: {
+    budget: "₹2L–3.5L",
+    mid: "₹5L–8L",
+    luxury: "₹12L+"
+  },
+
+  estimatedDaily:
+    "₹28k–65k/day depending on safari and stays.",
+
+  image:
+    "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1400"
+},
+
+{
+  id: "australia-complete",
+
+  title: "Surf Cities + Ocean Roads",
+
+  duration: "10–12 Days",
+
+  locations: [
+    "Sydney",
+    "Melbourne",
+    "Great Ocean Road"
+  ],
+
+  routeType: "coastal-roadtrip",
+
+  identity:
+    "Surf culture, brunch cafes, skyline cities, ocean drives, and cleaner laid-back travel pacing.",
+
+  dontMiss:
+    "Great Ocean Road sunrise drives before traffic builds up.",
+
+  hiddenGem:
+    "Fitzroy brunch cafes hidden behind side streets.",
+
+  bestFor: [
+    "Friends",
+    "Road trips",
+    "Cafe people"
+  ],
+
+  vibeTags: [
+    "coastal",
+    "cafes",
+    "roadtrip",
+    "city"
+  ],
+
+  bestMonths: [
+    "November",
+    "December",
+    "January",
+    "February"
+  ],
+
+  budgets: {
+    budget: "₹2L–3.5L",
+    mid: "₹5L–8L",
+    luxury: "₹12L+"
+  },
+
+  estimatedDaily:
+    "₹28k–65k/day depending on flights and road trips.",
+
+  image:
+    "https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?q=80&w=1400"
+},
+
+{
+  id: "new-zealand-complete",
+
+  title: "Lakes + Cinematic Mountain Roads",
+
+  duration: "12–15 Days",
+
+  locations: [
+    "Auckland",
+    "Rotorua",
+    "Queenstown"
+  ],
+
+  routeType: "nature-roadtrip",
+
+  identity:
+    "Mountain roads, glacier lakes, adventure towns, scenic drives, and unreal cinematic landscapes everywhere.",
+
+  dontMiss:
+    "Queenstown sunrise lake views before the town fully wakes up.",
+
+  hiddenGem:
+    "Smaller hot-spring stays around Rotorua.",
+
+  bestFor: [
+    "Road trips",
+    "Adventure",
+    "Scenic travel"
+  ],
+
+  vibeTags: [
+    "mountains",
+    "lakes",
+    "roadtrip",
+    "nature"
+  ],
+
+  bestMonths: [
+    "November",
+    "December",
+    "January",
+    "February"
+  ],
+
+  budgets: {
+    budget: "₹2.5L–4L",
+    mid: "₹6L–10L",
+    luxury: "₹15L+"
+  },
+
+  estimatedDaily:
+    "₹35k–80k/day because intercity travel costs add up quickly.",
+
+  image:
+    "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1400"
+}
+
+];
+
+
+
+
