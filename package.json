@@ -1,0 +1,14 @@
+{
+  "name": "vibetrip-ai",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Aesthetic vibe-based travel discovery MVP with free AI-style recommendations and optional Reddit/Google integrations.",
+  "type": "module",
+  "scripts": {
+    "dev": "node backend/server.js",
+    "start": "node backend/server.js"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
